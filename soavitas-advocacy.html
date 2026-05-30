@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soavitas | Clinical Advocacy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,300;1,6..96,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0e0d;
+  --cream: #F2EDE5;
+  --gold: #B8924A;
+  --sage: #4A6350;
+  --warm: #FAF7F2;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 1.8rem 0;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+}
+.nav-logo {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: white;
+  text-decoration: none;
+}
+.nav-back {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  background: var(--ink);
+  padding: 7rem 1.8rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,146,74,0.08);
+}
+.eyebrow {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 2rem; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.hero-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(2.6rem, 10vw, 4rem);
+  font-weight: 400;
+  line-height: 1.08;
+  color: white;
+  margin-bottom: 1.8rem;
+}
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-lead {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 2;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--gold);
+  padding-left: 1.2rem;
+}
+.hero-note {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.8;
+}
+
+/* DOLORE */
+.section { padding: 4rem 1.8rem; }
+.label {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 2rem; height: 1px;
+  flex-shrink: 0;
+}
+.label-gold { color: var(--gold); }
+.label-gold::before { background: var(--gold); }
+.label-sage { color: var(--sage); }
+.label-sage::before { background: var(--sage); }
+.label-white { color: rgba(255,255,255,0.5); }
+.label-white::before { background: rgba(255,255,255,0.3); }
+
+.s-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: 1.8rem;
+}
+.s-body {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 2;
+  margin-bottom: 1.5rem;
+}
+
+.pain-list { display: flex; flex-direction: column; }
+.pain-item {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(17,17,16,0.08);
+  display: flex;
+  gap: 1rem;
+}
+.pain-item:first-child { border-top: 1px solid rgba(17,17,16,0.08); }
+.pain-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+}
+.pain-text {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(17,17,16,0.72);
+}
+.pain-text strong { color: var(--ink); font-weight: 500; }
+
+/* COSA FACCIAMO */
+.pillars { display: flex; flex-direction: column; }
+.pillar {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  gap: 1.2rem;
+}
+.pillar:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+.pillar-num {
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 0.1rem;
+}
+.pillar-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.3rem;
+}
+.pillar-desc {
+  font-size: 0.83rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+}
+
+/* NEURODIVERGENZA */
+.section-neuro { background: var(--warm); padding: 4rem 1.8rem; }
+.neuro-pull {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(1.5rem, 6vw, 2.2rem);
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+}
+
+/* SENZA GIUDIZIO */
+.section-giudizio { background: var(--sage); padding: 4rem 1.8rem; }
+.giudizio-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+.giudizio-title em { font-style: italic; color: rgba(255,255,255,0.7); }
+.giudizio-body {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 2;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1.5rem;
+}
+.giudizio-body strong { color: white; font-weight: 500; }
+.giudizio-note {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding-left: 1rem;
+  line-height: 1.75;
+}
+
+/* CTA */
+.section-cta { background: var(--ink); padding: 4rem 1.8rem; text-align: center; }
+.cta-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  font-style: italic;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 0.8rem;
+}
+.cta-sub {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 2.5rem;
+  line-height: 1.9;
+}
+.cta-sub strong { color: rgba(255,255,255,0.85); font-weight: 400; }
+.btn-gold {
+  display: block;
+  padding: 1.3rem 1.6rem;
+  background: var(--gold);
+  color: white;
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  transition: opacity 0.2s;
+}
+.btn-gold:hover { opacity: 0.85; }
+.btn-outline {
+  display: block;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.cta-nojudge {
+  margin-top: 2rem;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.8;
+  font-style: italic;
+}
+
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo {
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.35);
+}
+.footer-right {
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.18);
+  text-align: right;
+  line-height: 2;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://soavitasconciergenursing.com" class="nav-logo">Soavitas</a>
+  <a href="#" class="nav-back">← Torna</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">Clinical Advocacy</p>
+  <h1 class="hero-title">Nel sistema sanitario<br>non si dovrebbe<br>essere <em>soli.</em></h1>
+  <p class="hero-lead">Quel momento in cui si esce da una visita e il peso è lo stesso di prima — solo più confuso. Qualcuno che rimanga. Che capisca. Che non sparisca.</p>
+  <p class="hero-note">Cura privata a domicilio e in struttura · Solo su appuntamento<br>Lago di Garda · Milano · Brescia · Cremona · Mantova · Piacenza · In viaggio su richiesta</p>
+</section>
+
+<!-- DOLORE -->
+<section class="section" style="background:var(--warm);">
+  <p class="label label-gold">Si riconosce in questo?</p>
+  <h2 class="s-title" style="color:var(--ink);">Quello che si prova<br>quando il sistema<br>è più grande di noi.</h2>
+
+  <div class="pain-list">
+    <div class="pain-item">
+      <div class="pain-dot"></div>
+      <p class="pain-text"><strong>Si esce dalla visita e il foglio in mano non spiega nulla.</strong> Le parole c'erano, ma il senso no.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-dot"></div>
+      <p class="pain-text"><strong>Si sta lì in silenzio</strong> mentre il tempo scorre — e le domande restano in gola.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-dot"></div>
+      <p class="pain-text"><strong>Quindici minuti.</strong> Poi la porta si richiude. E si torna fuori con la sensazione di non essere stati davvero visti.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-dot"></div>
+      <p class="pain-text"><strong>Visite, esami, terapie.</strong> A un certo punto non si sa più dove si è — né dove si sta andando.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-dot"></div>
+      <p class="pain-text"><strong>Alcune stanze pesano.</strong> Si entra già sapendo che bisognerà spiegare tutto da capo — e sperare di essere capiti.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COSA FACCIAMO -->
+<section class="section" style="background:var(--ink);">
+  <p class="label label-white">Il nostro lavoro</p>
+  <h2 class="s-title" style="color:white;">Un'alleata<br><em>clinica.</em><br>Dalla Sua parte.</h2>
+  <p class="s-body" style="color:rgba(255,255,255,0.78);">L'advocacy non è accompagnamento. È presenza attiva — prima, durante e dopo ogni momento del percorso di cura.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">1</div>
+      <div>
+        <div class="pillar-title">Preparazione alla visita</div>
+        <div class="pillar-desc">Prima di entrare, costruiamo insieme le domande giuste. Nessuna visita senza un piano.</div>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">2</div>
+      <div>
+        <div class="pillar-title">Presenza attiva in sala visita</div>
+        <div class="pillar-desc">Siamo lì. Ascoltiamo, prendiamo nota, facciamo le domande che non vengono dette. Nulla viene perso.</div>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">3</div>
+      <div>
+        <div class="pillar-title">Traduzione del linguaggio medico</div>
+        <div class="pillar-desc">Dopo la visita, spieghiamo tutto in modo chiaro. Diagnosi, terapia, prossimi passi — senza ambiguità.</div>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">4</div>
+      <div>
+        <div class="pillar-title">Supporto emotivo alla complessità</div>
+        <div class="pillar-desc">Un percorso di cura non è solo clinico. C'è paura, stanchezza, disorientamento. Siamo presenti anche per questo.</div>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">5</div>
+      <div>
+        <div class="pillar-title">Continuità e coordinamento</div>
+        <div class="pillar-desc">Teniamo il filo tra specialisti, esami e terapie. Un piano unico, aggiornato, comprensibile.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEURODIVERGENZA -->
+<section class="section-neuro">
+  <p class="label label-sage">Un capitolo spesso ignorato</p>
+  <p class="neuro-pull">La sala d'attesa è già troppo. Le istruzioni arrivano tutte insieme. Il contatto visivo è invasivo. Non è debolezza — è un sistema che non sa accogliere chi funziona in modo diverso.</p>
+  <p class="s-body" style="color:rgba(17,17,16,0.68);">Le visite mediche possono essere sovrastimolanti. Le istruzioni, troppo veloci. Il contatto visivo, invasivo. La sala d'attesa, un campo minato.<br><br>Conosciamo queste dinamiche. Prepariamo ogni visita tenendo conto di come si funziona — non di come il sistema si aspetta che si funzioni. <strong style="color:var(--ink);">Le capacità ci sono. Mancava qualcuno che le vedesse.</strong></p>
+</section>
+
+<!-- SENZA GIUDIZIO -->
+<section class="section-giudizio">
+  <p class="label label-white">Uno spazio sicuro</p>
+  <h2 class="giudizio-title">Chiunque Lei sia.<br><em>Senza riserve.</em></h2>
+  <p class="giudizio-body">Il sistema sanitario non è sempre un luogo neutro. Certe persone entrano in uno studio medico e sentono già che dovranno scegliere cosa mostrare e cosa nascondere. Che parte di loro non è benvenuta in quella stanza.<br><br><strong>Con noi non è così.</strong> Ogni persona che accompagniamo è accolta nella sua interezza — storia, identità, complessità. Senza domande inutili. Senza sguardi. Senza sorprese.</p>
+  <p class="giudizio-note">Non chiediamo altro che fiducia.<br>Il giudizio non fa parte del nostro metodo.</p>
+</section>
+
+<!-- CTA -->
+<section class="section-cta">
+  <h2 class="cta-title">Parliamo<br>del suo percorso.</h2>
+  <p class="cta-sub"><strong>Nessun giudizio. Nessun impegno.</strong><br>Solo ascolto — riservato, entro 2 ore.</p>
+  <a href="https://soavitasagenda.as.me/ClinicalAdvocacy" target="_blank" class="btn-gold">Prenoti una consulenza advocacy</a>
+  <a href="https://wa.me/393516107418?text=Salve%2C%20vorrei%20informazioni%20sul%20servizio%20di%20Clinical%20Advocacy" target="_blank" class="btn-outline">Scriva su WhatsApp</a>
+  <a href="mailto:info@soavitasconciergenursing.it" class="btn-outline">Scriva via email</a>
+  <p class="cta-nojudge">Ogni storia è diversa. La Sua merita attenzione.<br>Siamo qui — senza riserve.</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Soavitas</div>
+  <div class="footer-right">
+    Concierge Nursing<br>
+    soavitasconciergenursing.com
+  </div>
+</footer>
+
+</body>
+</html>
