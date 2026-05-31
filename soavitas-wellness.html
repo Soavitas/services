@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soavitas | Benessere & Retreat</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,300;1,6..96,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f0e0d;--cream:#F2EDE5;--gold:#B8924A;--sage:#4A6350;--warm:#FAF7F2;--terra:#8B6F5E;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
+nav{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.8rem 1.8rem 0;}
+.nav-logo{font-family:'Bodoni Moda',serif;font-size:1.4rem;font-style:italic;color:white;text-decoration:none;}
+.nav-back{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;}
+
+/* HERO */
+.hero{background:var(--sage);padding:7rem 1.8rem 4.5rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);}
+.hero::after{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(184,146,74,0.15);}
+.eyebrow{font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem;}
+.eyebrow::before{content:'';display:block;width:2rem;height:1px;background:rgba(255,255,255,0.4);flex-shrink:0;}
+.hero-title{font-family:'Bodoni Moda',serif;font-size:clamp(2.6rem,10vw,4rem);font-weight:400;line-height:1.08;color:white;margin-bottom:1.5rem;}
+.hero-title em{font-style:italic;color:var(--gold);}
+.hero-lead{font-size:1rem;font-weight:300;line-height:2;color:rgba(255,255,255,0.82);border-left:2px solid var(--gold);padding-left:1.2rem;}
+
+.section{padding:4.5rem 1.8rem;}
+.label{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;margin-bottom:1.6rem;display:flex;align-items:center;gap:0.8rem;}
+.label::before{content:'';display:block;width:2rem;height:1px;flex-shrink:0;}
+.label-gold{color:var(--gold);}.label-gold::before{background:var(--gold);}
+.label-sage{color:var(--sage);}.label-sage::before{background:var(--sage);}
+.label-white{color:rgba(255,255,255,0.5);}.label-white::before{background:rgba(255,255,255,0.3);}
+.s-title{font-family:'Bodoni Moda',serif;font-size:clamp(1.9rem,7vw,2.8rem);line-height:1.12;margin-bottom:1.2rem;}
+.s-body{font-size:1rem;font-weight:300;line-height:2.1;margin-bottom:1.5rem;}
+
+/* FILOSOFIA */
+.filosofia-pull{font-family:'Bodoni Moda',serif;font-size:clamp(1.4rem,5.5vw,2rem);font-style:italic;color:var(--ink);line-height:1.5;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(17,17,16,0.1);}
+.filosofia-pull em{color:var(--sage);}
+
+/* COSA PORTIAMO */
+.pillars{display:flex;flex-direction:column;}
+.pillar{padding:1.4rem 0;border-bottom:1px solid rgba(17,17,16,0.08);display:flex;gap:1.2rem;}
+.pillar:first-child{border-top:1px solid rgba(17,17,16,0.08);}
+.pillar-num{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.4rem;color:var(--gold);flex-shrink:0;line-height:1;margin-top:0.1rem;}
+.pillar-title{font-size:0.95rem;font-weight:500;color:var(--ink);margin-bottom:0.3rem;}
+.pillar-desc{font-size:0.85rem;font-weight:300;color:rgba(17,17,16,0.6);line-height:1.8;}
+
+/* SCENARI */
+.scenari{display:flex;flex-direction:column;gap:0.6rem;}
+.scenario{padding:1.6rem;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);}
+.scenario-tag{font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.scenario-title{font-size:1rem;font-weight:500;color:white;margin-bottom:0.4rem;}
+.scenario-body{font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.58);line-height:1.8;}
+
+/* MANIFESTO */
+.manifesto{background:var(--ink);padding:4.5rem 1.8rem;}
+.manifesto-pull{font-family:'Bodoni Moda',serif;font-size:clamp(1.4rem,5.5vw,2rem);font-style:italic;color:white;line-height:1.5;margin-bottom:1.8rem;}
+.manifesto-pull em{color:var(--gold);}
+.manifesto-body{font-size:1rem;font-weight:300;line-height:2.1;color:rgba(255,255,255,0.75);}
+.manifesto-body strong{color:white;font-weight:500;}
+
+.section-cta{background:var(--sage);padding:4.5rem 1.8rem;text-align:center;}
+.cta-title{font-family:'Bodoni Moda',serif;font-size:clamp(1.9rem,7vw,2.8rem);font-style:italic;color:white;line-height:1.12;margin-bottom:0.8rem;}
+.cta-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.65);margin-bottom:2.5rem;line-height:2;}
+.cta-sub strong{color:white;font-weight:400;}
+.btn-white{display:block;padding:1.4rem 1.6rem;background:white;color:var(--ink);font-size:0.62rem;letter-spacing:0.26em;text-transform:uppercase;text-decoration:none;margin-bottom:0.6rem;transition:opacity 0.2s;}
+.btn-white:hover{opacity:0.9;}
+.btn-outline-white{display:block;padding:1.3rem 1.6rem;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.75);font-size:0.62rem;letter-spacing:0.26em;text-transform:uppercase;text-decoration:none;margin-bottom:0.6rem;}
+.btn-outline-white:hover{border-color:white;color:white;}
+.cta-note{margin-top:2rem;font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.3);line-height:1.8;font-style:italic;}
+footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.8rem;display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.2rem;color:rgba(255,255,255,0.35);}
+.footer-right{font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.18);text-align:right;line-height:2;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://soavitasconciergenursing.com" class="nav-logo">Soavitas</a>
+  <a href="#" class="nav-back">← Torna</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">Benessere · Retreat · Yoga · Wellness</p>
+  <h1 class="hero-title">Il corpo guarisce.<br>L'anima <em>fiorisce.</em><br>Noi siamo lì.</h1>
+  <p class="hero-lead">Il vero benessere non separa il corpo dalla mente — né la cura clinica da quella spirituale. Soavitas porta la sicurezza medica negli spazi del benessere, in silenzio, senza interrompere il flusso.</p>
+</section>
+
+<!-- FILOSOFIA -->
+<section class="section" style="background:var(--warm);">
+  <p class="label label-gold">La nostra visione</p>
+  <p class="filosofia-pull">Il benessere dell'anima è parte del corpo.<br>Ogni persona è un'<em>entità unica e irripetibile</em> —<br>e ogni spazio di cura merita di essere sicuro,<br>oltre che bello.</p>
+  <p class="s-body" style="color:rgba(17,17,16,0.68);">Un retreat yoga, una settimana di detox, un percorso di meditazione — sono esperienze profonde, che toccano livelli di vulnerabilità reale. Chi li organizza merita un partner che capisca questo — e che sappia stare presente senza disturbare.</p>
+</section>
+
+<!-- COSA PORTIAMO -->
+<section class="section" style="background:var(--cream);">
+  <p class="label label-sage">Cosa porta Soavitas</p>
+  <h2 class="s-title" style="color:var(--ink);">Sicurezza.<br>Discrezione.<br><em>Presenza.</em></h2>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">1</div>
+      <div>
+        <div class="pillar-title">Presenza sanitaria durante il retreat</div>
+        <div class="pillar-desc">Un'infermiera presente — in silenzio, in disparte — pronta a intervenire se qualcuno ne ha bisogno. Per i partecipanti, totale tranquillità. Per l'organizzatore, responsabilità condivisa.</div>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">2</div>
+      <div>
+        <div class="pillar-title">Supporto per partecipanti con esigenze mediche</div>
+        <div class="pillar-desc">Chi partecipa a un retreat porta con sé la propria storia clinica. Terapie, patologie croniche, farmaci da gestire — Soavitas assicura che nulla venga trascurato.</div>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">3</div>
+      <div>
+        <div class="pillar-title">Screening pre-retreat su richiesta</div>
+        <div class="pillar-desc">Per i centri che lo desiderano, valutiamo le esigenze dei partecipanti prima dell'inizio — così nessuna situazione diventa una sorpresa.</div>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">4</div>
+      <div>
+        <div class="pillar-title">Gestione delle emergenze con discrezione</div>
+        <div class="pillar-desc">Se qualcosa accade, c'è qualcuno di formato per gestirlo — senza panico, senza interrompere inutilmente il gruppo, con la professionalità che la situazione richiede.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARI -->
+<section class="section" style="background:var(--ink);">
+  <p class="label label-white">Quando ha senso</p>
+  <h2 class="s-title" style="color:white;margin-bottom:1.5rem;">Si riconosce<br>in uno di questi<br><em>contesti?</em></h2>
+  <div class="scenari">
+    <div class="scenario">
+      <p class="scenario-tag">Retreat yoga e meditazione</p>
+      <p class="scenario-title">Partecipanti di ogni età, background e condizione fisica.</p>
+      <p class="scenario-body">Un retreat intensivo può portare alla superficie emozioni, reazioni fisiche, stati alterati. Avere qualcuno di clinicamente formato è un atto di cura verso ogni partecipante.</p>
+    </div>
+    <div class="scenario">
+      <p class="scenario-tag">Centri benessere e spa</p>
+      <p class="scenario-title">Ospiti fragili, anziani, o in recovery che scelgono il benessere come cura.</p>
+      <p class="scenario-body">Chi viene dopo un intervento, chi ha una patologia cronica, chi è in un momento di fragilità — merita un centro che sappia accoglierlo davvero.</p>
+    </div>
+    <div class="scenario">
+      <p class="scenario-tag">Wellness retreat residenziali</p>
+      <p class="scenario-title">Più giorni di immersione, lontano da tutto — incluso il pronto soccorso più vicino.</p>
+      <p class="scenario-body">Nelle destinazioni isolate, avere un'infermiera presente non è un lusso. È la condizione che permette all'esperienza di essere davvero sicura — e profonda.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <p class="label label-gold">Il nostro impegno</p>
+  <p class="manifesto-pull">Rispettiamo il viaggio di ogni persona.<br>Lo <em>onoriamo.</em></p>
+  <p class="manifesto-body">In uno spazio di benessere, le persone si aprono. Si fidano. Si lasciano andare. È un momento raro e prezioso — e merita di essere protetto con la stessa cura con cui è stato creato.<br><br><strong>Soavitas non interferisce con questo spazio. Lo custodisce.</strong></p>
+</section>
+
+<!-- CTA -->
+<section class="section-cta">
+  <h2 class="cta-title">Costruiamo<br>qualcosa insieme.</h2>
+  <p class="cta-sub"><strong>Ogni collaborazione è su misura.</strong><br>Raccontateci il vostro spazio — valutiamo insieme.</p>
+  <a href="https://soavitasagenda.as.me/Medici" target="_blank" class="btn-white">Prenoti un colloquio</a>
+  <a href="https://wa.me/393516107418?text=Salve%2C%20organizzo%20retreat%20e%20vorrei%20valutare%20una%20collaborazione%20con%20Soavitas" target="_blank" class="btn-outline-white">Scriva su WhatsApp</a>
+  <a href="mailto:info@soavitasconciergenursing.it" class="btn-outline-white">Scriva via email</a>
+  <p class="cta-note">Solo su appuntamento · IT · EN · FR · عربي su richiesta</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Soavitas</div>
+  <div class="footer-right">Concierge Nursing<br>soavitasconciergenursing.com</div>
+</footer>
+
+</body>
+</html>
