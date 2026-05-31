@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soavitas | La Scienza dietro il Metodo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#F8F5F0;
+  --forest:#1a1a18;
+  --sage:#3a3a35;
+  --cream:#1a1a18;
+  --gold:#8B6A30;
+  --gold-dark:#6B4E20;
+  --warm:#F0EBE3;
+  --muted:#6a6a62;
+}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'EB Garamond',serif;background:#F8F5F0;color:#1a1a18;overflow-x:hidden;font-size:18px;}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.8rem 2.4rem;border-bottom:1px solid rgba(26,26,24,0.08);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#1a1a18;text-decoration:none;letter-spacing:0.08em;font-weight:400;}
+.nav-back{font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:#6a6a62;text-decoration:none;}
+.nav-back:hover{color:#1a1a18;}
+
+/* HERO */
+.hero{padding:5rem 2.4rem 4rem;border-bottom:1px solid rgba(26,26,24,0.08);}
+.eyebrow{font-size:0.55rem;letter-spacing:0.35em;text-transform:uppercase;color:#6a6a62;margin-bottom:1.8rem;display:flex;align-items:center;gap:0.8rem;}
+.eyebrow::before{content:'';display:block;width:2rem;height:1px;background:#6a6a62;flex-shrink:0;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,8vw,4rem);font-weight:400;line-height:1.08;color:#1a1a18;margin-bottom:1.8rem;letter-spacing:-0.01em;}
+.hero-title em{font-style:italic;color:#1a1a18;}
+.hero-lead{font-size:1.05rem;font-weight:400;line-height:2.15;color:#3a3a35;max-width:560px;font-family:'Outfit',sans-serif;}
+.hero-lead strong{color:#1a1a18;font-weight:500;}
+
+/* INTRO */
+.section{padding:4.5rem 2.4rem;}
+.label{font-size:0.55rem;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:1.8rem;display:flex;align-items:center;gap:0.8rem;color:#6a6a62;}
+.label::before{content:'';display:block;width:2rem;height:1px;background:#6a6a62;flex-shrink:0;}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,6vw,2.6rem);font-weight:400;line-height:1.15;margin-bottom:1.4rem;color:#1a1a18;}
+.s-title em{font-style:italic;color:#1a1a18;}
+.s-body{font-size:1rem;font-weight:300;line-height:2.1;color:#3a3a35;margin-bottom:1.6rem;font-family:'Outfit',sans-serif;}
+.s-body strong{color:#1a1a18;font-weight:500;}
+
+/* EVIDENZE */
+.evidenza{padding:4rem 2.4rem;border-top:1px solid rgba(26,26,24,0.08);}
+.ev-num{font-family:'Outfit',sans-serif;font-style:normal;font-size:0.55rem;letter-spacing:0.35em;color:#6a6a62;line-height:1;margin-bottom:1rem;}
+.ev-tag{font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:#6a6a62;margin-bottom:1rem;}
+.ev-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,5.5vw,2.2rem);font-weight:400;color:#1a1a18;line-height:1.15;margin-bottom:1.4rem;}
+.ev-title em{font-style:italic;color:#1a1a18;}
+.ev-body{font-size:1rem;font-weight:300;line-height:2.1;color:#3a3a35;margin-bottom:1.6rem;font-family:'Outfit',sans-serif;}
+.ev-body strong{color:#1a1a18;font-weight:500;}
+.ev-dato{background:#EDE7DD;border-left:1px solid rgba(26,26,24,0.2);padding:1.6rem 1.8rem;margin-bottom:1.5rem;}
+.ev-dato p{font-size:0.95rem;font-weight:400;line-height:2;color:#2a2a25;font-family:'Outfit',sans-serif;}
+.ev-dato strong{color:var(--gold);font-weight:500;}
+.ev-fonte{font-size:0.68rem;letter-spacing:0.02em;color:#8a8a80;font-style:normal;font-family:'Outfit',sans-serif;line-height:1.8;border-top:1px solid rgba(26,26,24,0.08);padding-top:1rem;margin-top:0.5rem;}
+
+/* METODO */
+.section-metodo{background:#EDE8E0;padding:5rem 2.4rem;border-top:1px solid rgba(26,26,24,0.08);border-bottom:1px solid rgba(26,26,24,0.08);}
+.metodo-pull{font-family:'EB Garamond',serif;font-size:clamp(1.2rem,4.5vw,1.7rem);font-style:normal;font-weight:400;color:#1a1a18;line-height:1.85;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(26,26,24,0.1);}
+.metodo-pull em{color:#1a1a18;}
+
+/* CTA */
+.section-cta{padding:5rem 2.4rem;text-align:center;border-top:1px solid rgba(26,26,24,0.08);}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,6vw,2.6rem);color:#1a1a18;line-height:1.15;margin-bottom:1rem;font-weight:400;}
+.cta-title em{font-style:italic;color:#1a1a18;}
+.cta-sub{font-size:1rem;font-weight:400;color:#6a6a62;margin-bottom:3rem;line-height:2;font-family:'EB Garamond',serif;}
+.btn-gold{display:block;padding:1.3rem 1.6rem;background:#1a1a18;color:#F8F5F0;font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;margin-bottom:0.6rem;transition:opacity 0.2s;}
+.btn-gold:hover{opacity:0.85;}
+.btn-outline{display:block;padding:1.2rem 1.6rem;border:1px solid rgba(26,26,24,0.2);color:#3a3a35;font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;margin-bottom:0.6rem;}
+.btn-outline:hover{border-color:#1a1a18;color:#1a1a18;}
+
+footer{padding:2.5rem 2.4rem;border-top:1px solid rgba(26,26,24,0.08);display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(26,26,24,0.35);letter-spacing:0.06em;}
+.footer-right{font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(26,26,24,0.25);text-align:right;line-height:2;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="soavitas-cosee.html" class="nav-logo">Soavitas</a>
+  <a href="soavitas-cosee.html" class="nav-back">← Torna</a>
+</nav>
+
+<!-- ATTO I: L'INIZIO -->
+<section class="hero" style="padding:5rem 2.4rem 4rem;border-bottom:1px solid rgba(26,26,24,0.08);">
+  <p class="eyebrow">La storia del nostro metodo</p>
+  <h1 class="hero-title">Ci hanno detto<br>che eravamo<br><em>troppo.</em></h1>
+  <p class="hero-lead" style="font-family:'Outfit',sans-serif;">Troppo presenti. Troppo precisi. Troppo attenti a dettagli che "non cambiano nulla". Questa è la storia di come abbiamo scoperto che avevamo ragione — e di cosa succede alle persone quando la cura è finalmente su misura.</p>
+</section>
+
+<!-- ATTO II: IL PROBLEMA -->
+<section class="section">
+  <p class="label">Il sistema e le sue crepe</p>
+  <h2 class="s-title">Il sistema vuole<br>una cura uguale<br><em>per tutti.</em></h2>
+  <p class="s-body">Protocolli uguali. Tempi standard. Volti che cambiano. È comprensibile — forse inevitabile. Ma quello che il sistema chiama efficienza, noi lo abbiamo sempre chiamato con un altro nome: <strong>perdita di informazioni clinicamente rilevanti.</strong></p>
+  <p class="s-body">Le persone non sono pezzi intercambiabili. Ogni persona porta con sé una neurobiologia specifica, una storia emotiva, abitudini, paure, preferenze che cambiano come reagisce alle cure. Ignorarle non semplifica la medicina. La impoverisce.</p>
+  <p class="s-body">Ci hanno criticato per il perfezionismo. Per il tempo che dedicavamo. Per il rifiuto di applicare protocolli dove vedevamo una persona. <strong>Non ci siamo fermati.</strong></p>
+</section>
+
+<!-- ATTO III: LA SCOPERTA -->
+<section class="section" style="background:#EDE7DD;border-top:1px solid rgba(26,26,24,0.07);border-bottom:1px solid rgba(26,26,24,0.07);">
+  <p class="label">Quello che la scienza ha confermato</p>
+  <h2 class="s-title">Non eravamo romantici.<br><em>Eravamo precisi.</em></h2>
+  <p class="s-body">Anni dopo, abbiamo letto i paper. Abbiamo trovato Kitwood, la person-centered care, le metanalisi sulla continuità assistenziale. <strong>Abbiamo riconosciuto quello che facevamo. Non ci ha sorpreso. Ci ha confermato.</strong></p>
+  <p class="s-body">Tre aree di ricerca — continuità assistenziale, aderenza terapeutica, neurobiologia dello stress — convergono verso la stessa conclusione. La relazione di cura non è un accessorio della medicina. <strong>È parte integrante del risultato clinico.</strong></p>
+  <p class="s-body">Quello che segue non è marketing. Sono gli esiti sui pazienti.</p>
+</section>
+
+<!-- STUDIO I -->
+<section class="evidenza">
+  <div class="ev-num">STUDIO I</div>
+  <p class="ev-tag">Continuità assistenziale</p>
+  <h2 class="ev-title">Quando la stessa persona<br>entra ogni giorno,<br><em>le cose cambiano.</em></h2>
+  <p class="ev-body">Chi conosce la storia clinica, le abitudini, le reazioni tipiche di una persona specifica interviene in modo più preciso, più tempestivo, più calibrato. L'errore diminuisce. La fiducia aumenta. Il corpo risponde meglio.</p>
+  <p class="ev-body">Non è intuizione. È quello che accade ai pazienti reali, nei dati reali, quando la continuità è garantita.</p>
+  <div class="ev-dato">
+    <p>La continuità assistenziale è associata a una <strong>riduzione dei ricoveri ospedalieri ripetuti fino al 24%</strong> rispetto a chi riceve cure frammentate tra più operatori. I pazienti seguiti dallo stesso professionista nel tempo presentano minori complicanze e migliore aderenza alle terapie.</p>
+  </div>
+  <p style="font-family:'Outfit',sans-serif;font-size:0.62rem;color:#8a8a80;line-height:1.9;border-top:1px solid rgba(26,26,24,0.07);padding-top:0.8rem;margin-top:0.5rem;">
+    <a href="https://pubmed.ncbi.nlm.nih.gov/12958120/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">Haggerty JL et al. — <em>BMJ</em>, 2003</a> &nbsp;·&nbsp;
+    <a href="https://pubmed.ncbi.nlm.nih.gov/15724286/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">Saultz JW, Lochner J — <em>Annals of Family Medicine</em>, 2005</a> &nbsp;·&nbsp;
+    <a href="https://pubmed.ncbi.nlm.nih.gov/28572018/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">Barker I et al. — <em>BMJ Open</em>, 2017</a>
+  </p>
+</section>
+
+<!-- STUDIO II -->
+<section class="evidenza">
+  <div class="ev-num">STUDIO II</div>
+  <p class="ev-tag">Aderenza terapeutica</p>
+  <h2 class="ev-title">Avere una terapia<br>non significa<br><em>seguirla.</em></h2>
+  <p class="ev-body">L'OMS stima che nei paesi sviluppati solo il 50% dei pazienti con malattie croniche segue correttamente la terapia prescritta. Non per negligenza — per complessità, solitudine, confusione, mancanza di qualcuno che spieghi davvero.</p>
+  <p class="ev-body">Un piano terapeutico scritto, personalizzato, spiegato da qualcuno di fiducia che lo monitora nel tempo cambia questo dato in modo misurabile. <strong>La comprensione genera adesione. L'adesione genera risultati.</strong> Sui pazienti. Nel mondo reale.</p>
+  <div class="ev-dato">
+    <p>La scarsa aderenza terapeutica è responsabile di <strong>125.000 decessi evitabili ogni anno</strong> negli Stati Uniti. In Europa i dati sono proporzionalmente simili. Un piano terapeutico personalizzato e monitorato riduce significativamente questo rischio.</p>
+  </div>
+  <p style="font-family:'Outfit',sans-serif;font-size:0.62rem;color:#8a8a80;line-height:1.9;border-top:1px solid rgba(26,26,24,0.07);padding-top:0.8rem;margin-top:0.5rem;">
+    <a href="https://www.who.int/chp/knowledge/publications/adherence_report/en/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">World Health Organization — <em>Adherence to Long-Term Therapies: Evidence for Action</em>, 2003</a> &nbsp;·&nbsp;
+    <a href="https://www.nejm.org/doi/full/10.1056/NEJMra050100" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">Osterberg L, Blaschke T — <em>New England Journal of Medicine</em>, 2005</a> &nbsp;·&nbsp;
+    <a href="https://pubmed.ncbi.nlm.nih.gov/16143490/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">DiMatteo MR — <em>Health Psychology</em>, 2004</a>
+  </p>
+</section>
+
+<!-- STUDIO III -->
+<section class="evidenza">
+  <div class="ev-num">STUDIO III</div>
+  <p class="ev-tag">Neurobiologia dello stress e relazione di cura</p>
+  <h2 class="ev-title">Il corpo guarisce meglio<br>quando si sente<br><em>al sicuro.</em></h2>
+  <p class="ev-body">Lo stress cronico attiva l'asse ipotalamo-ipofisi-surrene, aumenta i livelli di cortisolo e compromette la risposta immunitaria, la cicatrizzazione, la qualità del sonno. In un contesto di cura, l'ansia e l'incertezza sono fattori clinicamente rilevanti — non solo emotivi.</p>
+  <p class="ev-body">La relazione terapeutica — la fiducia in chi cura, la prevedibilità delle cure, la sensazione di essere visti e compresi — attiva il sistema parasimpatico, abbassa il cortisolo, riduce la percezione del dolore. <strong>Non è comfort. È fisiologia. E i pazienti ne beneficiano in modo misurabile.</strong></p>
+  <div class="ev-dato">
+    <p>Nella cura della demenza, gli approcci relazionali riducono <strong>agitazione e sintomi comportamentali senza ricorrere ai farmaci</strong> — <em>Clinical Gerontologist</em>, 2022. La stabilità del caregiver è associata a una riduzione statisticamente significativa dei <strong>sintomi d'ansia nel paziente</strong> — non nel caregiver: nel paziente.</p>
+  </div>
+  <p style="font-family:'Outfit',sans-serif;font-size:0.62rem;color:#8a8a80;line-height:1.9;border-top:1px solid rgba(26,26,24,0.07);padding-top:0.8rem;margin-top:0.5rem;">
+    <a href="https://pubmed.ncbi.nlm.nih.gov/12214453/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">Kiecolt-Glaser JK et al. — <em>Psychosomatic Medicine</em>, 2002</a> &nbsp;·&nbsp;
+    <a href="https://pubmed.ncbi.nlm.nih.gov/11564008/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">Segerstrom SC, Miller GE — <em>Psychological Bulletin</em>, 2004</a> &nbsp;·&nbsp;
+    <a href="https://pubmed.ncbi.nlm.nih.gov/34346547/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">Clinical Gerontologist, 2022</a> &nbsp;·&nbsp;
+    <a href="https://pubmed.ncbi.nlm.nih.gov/26111169/" target="_blank" style="color:#6a6a62;text-decoration:none;border-bottom:1px solid rgba(106,106,98,0.3);">Porges SW — <em>Biological Psychology</em>, 2007</a>
+  </p>
+</section>
+
+<!-- ATTO IV: IL RIFIUTO -->
+<section class="section-metodo">
+  <p class="label" style="color:#6a6a62;">La nostra posizione</p>
+  <p class="metodo-pull">Rifiutiamo una medicina che dice che non siete unici. Che non siete irripetibili. Che la vostra storia non cambia la cura che meritate.</p>
+  <p class="s-body" style="color:#3a3a35;">Non siamo partiti dalla letteratura. Abbiamo seguito quello che vedevamo — persone che miglioravano quando erano trattate come persone. Persone che peggioravano quando venivano trattate come protocolli.<br><br>La scienza ha fatto il resto. <strong>Abbiamo trovato le prove di quello che già sapevamo fare.</strong></p>
+  <p class="s-body" style="color:#3a3a35;">Troverà le fonti citate sotto ogni evidenza — link diretti agli studi originali. Non perché dobbiamo dimostrare qualcosa, ma perché <strong>il confronto con i colleghi è parte del nostro metodo</strong>, e l'aggiornamento continuo è un impegno etico prima ancora che professionale. L'etica, per noi, non è un dettaglio.</p>
+  <a href="https://www.soavitasconciergenursing.com/blog/tua-madre-ti-ha-riconosciuto" target="_blank" style="display:inline-flex;align-items:center;gap:0.8rem;color:#1a1a18;text-decoration:none;font-family:'Outfit',sans-serif;font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;border-bottom:1px solid rgba(26,26,24,0.2);padding-bottom:0.2rem;margin-top:1.5rem;">La storia completa →</a>
+</section>
+
+<!-- CTA -->
+<section class="section-cta">
+  <h2 class="cta-title">Vuole vedere<br>come funziona<br><em>nella pratica?</em></h2>
+  <p class="cta-sub">Scopra il servizio o prenoti una consulenza introduttiva.</p>
+  <a href="soavitas-cosee.html" class="btn-gold">Scopra il Concierge Nursing</a>
+  <a href="https://soavitasagenda.as.me/introduttiva" target="_blank" class="btn-outline">Prenoti una consulenza</a>
+  <a href="https://wa.me/393516107418" target="_blank" class="btn-outline">Scriva su WhatsApp</a>
+  <a href="https://soavitasagenda.as.me/Medici" target="_blank" class="btn-outline" style="border-color:rgba(26,26,24,0.12);color:#8a8a80;">È un professionista sanitario? Collaboriamo →</a>
+</section>
+
+<footer>
+  <div class="footer-logo">Soavitas</div>
+  <div class="footer-right">Concierge Nursing<br>soavitasconciergenursing.com</div>
+</footer>
+
+</body>
+</html>
