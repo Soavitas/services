@@ -4,96 +4,148 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Soavitas Express</title>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,300;1,6..96,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0f0e0d;--cream:#F2EDE5;--gold:#B8924A;--sage:#4A6350;--warm:#FAF7F2;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{font-family:'Outfit',sans-serif;background:var(--ink);color:white;overflow-x:hidden;}
-nav{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.8rem 1.8rem 0;}
-.nav-logo{font-family:'Bodoni Moda',serif;font-size:1.4rem;font-style:italic;color:white;text-decoration:none;}
-.nav-back{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;}
+:root{
+  --ink:#0d1a1a;
+  --teal:#1a3a3a;
+  --teal-mid:#1f4a48;
+  --teal-light:#2a6660;
+  --cream:#E8F0EF;
+  --gold:#C9AA6A;
+  --gold-dark:#8B6A30;
+  --alert:#E8F0EF;
+  --warm:#F0F5F4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--ink);color:var(--cream);overflow-x:hidden;}
 
-/* HERO */
-.hero{background:var(--ink);padding:7rem 1.8rem 4.5rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(184,146,74,0.2);}
-.hero::after{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(184,146,74,0.1);}
-.eyebrow{font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem;}
-.eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);flex-shrink:0;}
-.hero-title{font-family:'Bodoni Moda',serif;font-size:clamp(3rem,11vw,4.5rem);font-weight:400;line-height:1.05;color:white;margin-bottom:0.5rem;}
+nav{position:absolute;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.8rem 1.6rem;}
+.nav-logo{font-family:'Bodoni Moda',serif;font-size:1.5rem;font-style:italic;color:white;text-decoration:none;}
+.nav-home{font-size:0.5rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(232,240,239,0.35);text-decoration:none;}
+
+/* HERO — urgenza visiva ma premium */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(160deg, #0d1a1a 0%, #1a3a3a 40%, #1f4a48 70%, #0d1a1a 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 1.6rem 4rem;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 85% 15%, rgba(42,102,96,0.25) 0%, transparent 55%);
+}
+/* Pulse sottile — urgenza silenziosa */
+.pulse{
+  position:absolute;top:3rem;right:1.6rem;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:rgba(201,170,106,0.6);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:0.6;transform:scale(1);}
+  50%{opacity:1;transform:scale(1.3);}
+}
+
+.hero-eyebrow{font-size:0.52rem;letter-spacing:0.38em;text-transform:uppercase;color:rgba(201,170,106,0.7);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem;}
+.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:rgba(201,170,106,0.5);flex-shrink:0;}
+.hero-title{font-family:'Bodoni Moda',serif;font-size:clamp(3rem,12vw,5.5rem);font-weight:400;line-height:0.98;color:white;margin-bottom:1.5rem;}
 .hero-title em{font-style:italic;color:var(--gold);}
-.hero-badge{display:inline-block;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:0.4rem 0.9rem;margin-bottom:1.8rem;}
-.hero-lead{font-size:1rem;font-weight:300;line-height:2;color:rgba(255,255,255,0.75);border-left:2px solid var(--gold);padding-left:1.2rem;margin-bottom:2rem;}
 
-/* TIMER */
-.timer-box{background:rgba(184,146,74,0.08);border:1px solid rgba(184,146,74,0.25);padding:1.6rem;margin-bottom:0;}
-.timer-label{font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
-.timer-nums{display:flex;gap:1.5rem;align-items:flex-end;}
-.timer-item{text-align:center;}
-.timer-num{font-family:'Bodoni Moda',serif;font-size:2.8rem;font-style:italic;color:white;line-height:1;}
-.timer-unit{font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.2rem;}
-.timer-sep{font-family:'Bodoni Moda',serif;font-size:2rem;color:var(--gold);align-self:flex-start;margin-top:0.3rem;}
+.hero-human{font-size:1.08rem;font-weight:300;line-height:2;color:rgba(232,240,239,0.88);margin-bottom:2rem;border-left:2px solid rgba(201,170,106,0.4);padding-left:1.2rem;}
+.hero-human strong{color:white;font-weight:500;}
 
-.section{padding:4rem 1.8rem;}
-.label{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;margin-bottom:1.6rem;display:flex;align-items:center;gap:0.8rem;}
-.label::before{content:'';display:block;width:2rem;height:1px;flex-shrink:0;}
-.label-gold{color:var(--gold);}.label-gold::before{background:var(--gold);}
-.label-muted{color:rgba(255,255,255,0.35);}.label-muted::before{background:rgba(255,255,255,0.2);}
-.s-title{font-family:'Bodoni Moda',serif;font-size:clamp(1.9rem,7vw,2.8rem);line-height:1.12;margin-bottom:1.2rem;}
-.s-body{font-size:1rem;font-weight:300;line-height:2.1;margin-bottom:1.5rem;color:rgba(255,255,255,0.72);}
+.timer{display:flex;align-items:flex-end;gap:2rem;margin-bottom:1.8rem;}
+.timer-item{text-align:left;}
+.timer-num{font-family:'Bodoni Moda',serif;font-style:italic;font-size:3rem;color:white;line-height:1;}
+.timer-unit{font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,170,106,0.5);margin-top:0.3rem;}
+.timer-sep{font-size:1.8rem;color:rgba(201,170,106,0.25);align-self:flex-start;margin-top:0.4rem;}
+.hero-note{font-size:0.82rem;font-weight:300;color:rgba(232,240,239,0.5);line-height:1.9;}
 
-/* PRESTAZIONI */
-.prest-list{display:flex;flex-direction:column;}
-.prest-item{display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.07);text-decoration:none;color:white;transition:opacity 0.2s;}
-.prest-item:first-child{border-top:1px solid rgba(255,255,255,0.07);}
-.prest-item:active{opacity:0.7;}
-.prest-name{font-size:0.95rem;font-weight:500;flex:1;}
-.prest-desc{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.45);margin-top:0.1rem;}
-.prest-arrow{color:var(--gold);font-size:1.1rem;flex-shrink:0;transition:transform 0.2s;}
-.prest-item:hover .prest-arrow{transform:translateX(4px);}
+/* CTA HERO — subito visibile */
+.hero-cta{
+  display:block;
+  margin-top:2rem;
+  padding:1.3rem 1.6rem;
+  background:rgba(201,170,106,0.15);
+  border:1px solid rgba(201,170,106,0.35);
+  color:var(--gold);
+  font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;
+  text-decoration:none;text-align:center;
+}
 
-/* NON DISPONIBILE */
-.non-list{display:flex;flex-direction:column;gap:0;}
-.non-item{padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:1rem;align-items:center;}
-.non-item:first-child{border-top:1px solid rgba(255,255,255,0.05);}
-.non-x{color:rgba(255,255,255,0.2);font-size:0.85rem;flex-shrink:0;}
-.non-text{font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.4);}
+/* SEZIONI */
+.section{padding:4.5rem 1.8rem;}
+.label{font-size:0.52rem;letter-spacing:0.38em;text-transform:uppercase;margin-bottom:1.6rem;color:rgba(201,170,106,0.4);display:flex;align-items:center;gap:0.8rem;}
+.label::before{content:'';display:block;width:2rem;height:1px;background:rgba(201,170,106,0.25);flex-shrink:0;}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,7vw,2.8rem);font-weight:400;line-height:1.12;margin-bottom:1.2rem;color:var(--cream);}
+.s-title em{font-style:italic;color:var(--gold);}
+.s-body{font-size:1.05rem;font-weight:300;line-height:2.2;margin-bottom:1.6rem;color:rgba(232,240,239,0.82);}
+.s-body strong{color:var(--cream);font-weight:500;}
+
+/* SCROLL PRESTAZIONI */
+.scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -1.8rem;padding:0 1.8rem;scrollbar-width:none;}
+.scroll-wrap::-webkit-scrollbar{display:none;}
+.scroll-row{display:flex;gap:1px;width:max-content;padding-bottom:1.5rem;}
+.prest-card{width:65vw;max-width:220px;flex-shrink:0;padding:1.8rem 1.4rem;background:rgba(255,255,255,0.04);border-top:1px solid rgba(201,170,106,0.2);}
+.prest-name{font-size:1rem;font-weight:500;color:var(--cream);margin-bottom:0.5rem;line-height:1.3;}
+.prest-desc{font-size:0.88rem;font-weight:300;color:rgba(232,240,239,0.6);line-height:1.75;}
+.scroll-hint{font-size:0.5rem;letter-spacing:0.2em;color:rgba(232,240,239,0.18);text-transform:uppercase;margin-top:0.4rem;}
 
 /* TARIFFA */
-.tariffa-box{background:rgba(184,146,74,0.06);border:1px solid rgba(184,146,74,0.2);padding:1.8rem 1.6rem;margin-top:1.5rem;}
-.tariffa-title{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-.tariffa-body{font-size:0.92rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.68);}
-.tariffa-body strong{color:white;font-weight:500;}
+.tariffa-box{background:rgba(201,170,106,0.05);border-left:1px solid var(--gold-dark);padding:1.6rem 1.8rem;margin-top:2rem;}
+.tariffa-tag{font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.8rem;}
+.tariffa-text{font-size:0.95rem;font-weight:300;line-height:1.9;color:rgba(232,240,239,0.7);}
+.tariffa-text strong{color:var(--cream);font-weight:500;}
 
-/* CTA */
-.section-cta{background:var(--gold);padding:4.5rem 1.8rem;text-align:center;}
-.cta-title{font-family:'Bodoni Moda',serif;font-size:clamp(1.9rem,7vw,2.8rem);font-style:italic;color:white;line-height:1.12;margin-bottom:0.8rem;}
-.cta-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.8);margin-bottom:2.5rem;line-height:2;}
-.btn-dark{display:block;padding:1.4rem 1.6rem;background:var(--ink);color:white;font-size:0.62rem;letter-spacing:0.26em;text-transform:uppercase;text-decoration:none;margin-bottom:0.6rem;transition:opacity 0.2s;}
-.btn-dark:hover{opacity:0.85;}
-.btn-outline-white{display:block;padding:1.3rem 1.6rem;border:1px solid rgba(255,255,255,0.5);color:white;font-size:0.62rem;letter-spacing:0.26em;text-transform:uppercase;text-decoration:none;margin-bottom:0.6rem;}
-.btn-outline-white:hover{background:rgba(255,255,255,0.1);}
-.cta-note{margin-top:2rem;font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.8;font-style:italic;}
-footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.8rem;display:flex;justify-content:space-between;align-items:center;}
-.footer-logo{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.2rem;color:rgba(255,255,255,0.35);}
-.footer-right{font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.18);text-align:right;line-height:2;}
+/* NON DISPONIBILE */
+.non-list{display:flex;flex-direction:column;}
+.non-item{padding:0.9rem 0;border-bottom:1px solid rgba(232,240,239,0.05);display:flex;gap:1rem;align-items:center;}
+.non-item:first-child{border-top:1px solid rgba(232,240,239,0.05);}
+.non-text{font-size:0.95rem;font-weight:300;color:rgba(232,240,239,0.4);}
+
+/* NAV BAR */
+.nav-bar{padding:1rem 1.8rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(232,240,239,0.05);}
+.nav-bar a{font-size:0.5rem;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;}
+.nav-bar a:first-child{color:rgba(232,240,239,0.22);}
+.nav-bar a:last-child{color:rgba(201,170,106,0.4);}
+
+/* CTA FINALE */
+.section-cta{padding:5rem 1.8rem;text-align:center;}
+.cta-title{font-family:'Bodoni Moda',serif;font-size:clamp(2.5rem,10vw,4.5rem);font-style:italic;color:white;line-height:1.0;margin-bottom:0.5rem;}
+.cta-sub{font-size:0.9rem;font-weight:300;color:rgba(232,240,239,0.5);margin-bottom:2.5rem;line-height:2;}
+.btn-wa{display:block;padding:1.5rem 1.6rem;background:var(--teal-light);border:1px solid rgba(201,170,106,0.3);color:white;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;margin-bottom:0.6rem;}
+.btn-note{font-size:0.65rem;font-weight:300;color:rgba(232,240,239,0.25);line-height:1.8;font-style:italic;margin-top:1.5rem;}
+.btn-pair{display:flex;gap:0.6rem;margin-top:0.8rem;}
+.btn-pair a{flex:1;display:block;padding:1.1rem;border:1px solid rgba(232,240,239,0.12);color:rgba(232,240,239,0.38);font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;text-align:center;}
+
+footer{padding:2rem 1.6rem;border-top:1px solid rgba(232,240,239,0.06);display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.2rem;color:rgba(232,240,239,0.22);}
+.footer-right{font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(232,240,239,0.15);text-align:right;line-height:2;}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="https://soavitasconciergenursing.com" class="nav-logo">Soavitas</a>
-  <a href="#" class="nav-back">← Torna</a>
+  <a href="https://linktr.ee/soavitasconcierge" class="nav-logo">Soavitas</a>
+  <a href="https://linktr.ee/soavitasconcierge" class="nav-home">← Home</a>
 </nav>
+
+<!-- PULSE dot — urgenza silenziosa -->
+<div class="pulse"></div>
 
 <!-- HERO -->
 <section class="hero">
-  <p class="eyebrow">Soavitas Express</p>
-  <h1 class="hero-title">Non può<br><em>aspettare.</em></h1>
-  <div class="hero-badge">Risposta entro 1 ora · Intervento nelle 3-4 ore successive</div>
-  <p class="hero-lead">Per chi ha bisogno adesso. Stessa qualità Soavitas, stessa infermiera, stessa cura — con la priorità che la situazione richiede.</p>
+  <div style="position:relative;z-index:2;">
+    <p class="hero-eyebrow">Soavitas Express</p>
+    <h1 class="hero-title">Serve<br><em>adesso.</em></h1>
 
-  <div class="timer-box">
-    <p class="timer-label">Dall'ora della richiesta</p>
-    <div class="timer-nums">
+    <p class="hero-human"><strong>Risposta entro 1 ora.</strong> Intervento nelle 3–4 ore successive.<br>Solo su WhatsApp.</p>
+
+    <div class="timer">
       <div class="timer-item">
         <div class="timer-num">1h</div>
         <div class="timer-unit">Risposta</div>
@@ -104,47 +156,66 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
         <div class="timer-unit">Intervento</div>
       </div>
     </div>
+
+    <a href="https://wa.me/393516107418?text=Salve%2C%20ho%20bisogno%20del%20servizio%20Express%20Soavitas" target="_blank" class="hero-cta">Scriva adesso su WhatsApp →</a>
+
+    <p class="hero-note" style="margin-top:1rem;">Tariffa maggiorata comunicata prima della conferma</p>
+    <p style="font-size:0.6rem;font-weight:300;color:rgba(232,240,239,0.22);margin-top:0.4rem;letter-spacing:0.05em;">Soggetto a disponibilità</p>
   </div>
 </section>
 
-<!-- PRESTAZIONI DISPONIBILI -->
-<section class="section" style="background:var(--ink);">
-  <p class="label label-gold">Disponibile subito</p>
-  <h2 class="s-title">Le prestazioni<br><em>Express.</em></h2>
-  <div style="display:flex;flex-direction:column;gap:0;">
-    <div style="padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.82);">Rimozione punti</div>
-    <div style="padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.82);">Medicazione semplice</div>
-    <div style="padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.82);">Medicazione complessa</div>
-    <div style="padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.82);">Monitoraggio parametri vitali</div>
-    <div style="padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.82);">Infusioni endovenose</div>
-    <div style="padding:0.9rem 0;font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.82);">Catetere vescicale</div>
+<!-- PRESTAZIONI -->
+<section class="section">
+  <p class="label">Disponibile Express</p>
+  <h2 class="s-title">Le prestazioni<br><em>disponibili.</em></h2>
+
+  <div class="scroll-wrap">
+    <div class="scroll-row">
+      <div class="prest-card"><div class="prest-name">Rimozione punti</div><div class="prest-desc">Post-operatorio, suture, medicazione finale.</div></div>
+      <div class="prest-card"><div class="prest-name">Medicazione semplice</div><div class="prest-desc">Ferite superficiali, abrasioni, ulcere iniziali.</div></div>
+      <div class="prest-card"><div class="prest-name">Medicazione complessa</div><div class="prest-desc">Ferite chirurgiche, lesioni difficili, post-op avanzato.</div></div>
+      <div class="prest-card"><div class="prest-name">Monitoraggio parametri</div><div class="prest-desc">Pressione, saturazione, frequenza, glicemia.</div></div>
+      <div class="prest-card"><div class="prest-name">Infusioni endovenose</div><div class="prest-desc">Idratazione, antibiotici, terapie ev a domicilio.</div></div>
+      <div class="prest-card"><div class="prest-name">Catetere vescicale</div><div class="prest-desc">Posizionamento, sostituzione, gestione.</div></div>
+    </div>
   </div>
+  <p class="scroll-hint">← Scorri →</p>
 
   <div class="tariffa-box">
-    <p class="tariffa-title">Tariffa Express</p>
-    <p class="tariffa-body">Il servizio Express prevede una <strong>maggiorazione sulla tariffa standard</strong>, comunicata prima della conferma.<br><br>Nessuna sorpresa.</p>
+    <p class="tariffa-tag">Tariffa Express</p>
+    <p class="tariffa-text">Il servizio Express prevede una <strong>maggiorazione sulla tariffa standard</strong>. L'importo viene comunicato prima della conferma. Nessuna sorpresa.</p>
   </div>
 </section>
 
+<!-- NAV BAR -->
+<div class="nav-bar">
+  <a href="https://linktr.ee/soavitasconcierge">← Torna</a>
+  <a href="https://soavitasagenda.as.me/introduttiva" target="_blank">Prenoti una consulenza →</a>
+</div>
+
 <!-- NON DISPONIBILE -->
-<section class="section" style="background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.06);">
-  <p class="label label-muted">Non disponibile in Express</p>
-  <p class="s-body" style="color:rgba(255,255,255,0.45);margin-bottom:1.5rem;">Alcuni servizi richiedono pianificazione — non possono essere attivati in poche ore senza compromettere la qualità.</p>
+<section class="section" style="padding-top:3.5rem;">
+  <p class="label">Non disponibile in Express</p>
+  <p class="s-body" style="margin-bottom:1.5rem;">Questi servizi richiedono pianificazione e valutazione preliminare. Non sono compatibili con il formato Express.</p>
   <div class="non-list">
-    <div class="non-item"><span class="non-x">—</span><span class="non-text">Piani Terapeutici Personalizzati</span></div>
-    <div class="non-item"><span class="non-x">—</span><span class="non-text">Clinical Advocacy</span></div>
-    <div class="non-item"><span class="non-x">—</span><span class="non-text">In viaggio con Soavitas</span></div>
-    <div class="non-item"><span class="non-x">—</span><span class="non-text">Intervento all'estero</span></div>
+    <div class="non-item"><span style="color:rgba(232,240,239,0.2);font-size:0.8rem;">—</span><span class="non-text">Piani Terapeutici Personalizzati</span></div>
+    <div class="non-item"><span style="color:rgba(232,240,239,0.2);font-size:0.8rem;">—</span><span class="non-text">Clinical Advocacy</span></div>
+    <div class="non-item"><span style="color:rgba(232,240,239,0.2);font-size:0.8rem;">—</span><span class="non-text">In viaggio con Soavitas</span></div>
+    <div class="non-item"><span style="color:rgba(232,240,239,0.2);font-size:0.8rem;">—</span><span class="non-text">Intervento all'estero</span></div>
   </div>
-  <p style="font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.35);margin-top:1.5rem;font-style:italic;">Per questi servizi, <a href="https://soavitasagenda.as.me/introduttiva" target="_blank" style="color:var(--gold);text-decoration:none;">prenoti una consulenza introduttiva</a>.</p>
+  <p style="font-size:0.82rem;font-weight:300;color:rgba(232,240,239,0.3);margin-top:1.5rem;font-style:italic;">Per questi servizi → <a href="https://soavitasagenda.as.me/introduttiva" target="_blank" style="color:rgba(201,170,106,0.45);text-decoration:none;">prenoti una consulenza.</a></p>
 </section>
 
 <!-- CTA -->
 <section class="section-cta">
   <h2 class="cta-title">Adesso.</h2>
-  <p class="cta-sub">Scriva — risposta entro 1 ora.<br>Intervento nelle 3–4 ore successive alla conferma.</p>
-  <a href="https://wa.me/393516107418?text=Salve%2C%20ho%20bisogno%20del%20servizio%20Express%20Soavitas%20il%20prima%20possibile" target="_blank" class="btn-dark">Scriva su WhatsApp — adesso</a>
-  <p class="cta-note">Soggetto a disponibilità · Tariffa maggiorata comunicata prima della conferma</p>
+  <p class="cta-sub">Scriva su WhatsApp — risposta entro 1 ora.<br>Intervento nelle 3–4 ore successive alla conferma.</p>
+  <a href="https://wa.me/393516107418?text=Salve%2C%20ho%20bisogno%20del%20servizio%20Express%20Soavitas" target="_blank" class="btn-wa">Scriva su WhatsApp</a>
+  <div class="btn-pair">
+    <a href="https://linktr.ee/soavitasconcierge">Home</a>
+    <a href="https://soavitas.github.io/Soavitas/" target="_blank">Cos'è il Concierge</a>
+  </div>
+  <p class="btn-note">Solo su disponibilità · IT · EN · FR</p>
 </section>
 
 <footer>
