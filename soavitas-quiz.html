@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soavitas | Di cosa ha bisogno?</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:#F5F2ED;color:#1C1C1A;-webkit-font-smoothing:antialiased;min-height:100vh;}
+
+nav{padding:1.8rem 3rem;border-bottom:1px solid rgba(28,28,26,0.06);display:flex;justify-content:space-between;align-items:center;}
+.n-logo{font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:#1C1C1A;text-decoration:none;}
+.n-back{font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(28,28,26,0.4);text-decoration:none;}
+
+/* PROGRESS */
+.progress-wrap{padding:0 3rem;margin:2.5rem 0 0;}
+.progress-label{font-size:0.52rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(28,28,26,0.35);margin-bottom:0.8rem;display:flex;justify-content:space-between;}
+.progress-bar{height:1px;background:rgba(28,28,26,0.1);position:relative;}
+.progress-fill{height:1px;background:#8B7355;transition:width 400ms cubic-bezier(0.25,0,0,1);width:0%;}
+
+/* QUIZ CONTAINER */
+.quiz{padding:5rem 3rem 4rem;min-height:70vh;display:flex;flex-direction:column;justify-content:space-between;}
+.q-step{display:none;animation:fadeIn 350ms ease-out;}
+.q-step.active{display:flex;flex-direction:column;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+.q-num{font-size:0.52rem;letter-spacing:0.38em;text-transform:uppercase;color:#8B7355;margin-bottom:2rem;font-weight:500;}
+.q-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,7vw,3rem);font-weight:300;line-height:1.15;letter-spacing:-0.02em;margin-bottom:3rem;color:#1C1C1A;}
+.q-text em{font-style:italic;}
+
+/* OPTIONS */
+.options{display:flex;flex-direction:column;gap:0;}
+.opt{padding:1.4rem 0;border-top:1px solid rgba(28,28,26,0.06);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:padding-left 200ms ease-out;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;}
+.opt:last-child{border-bottom:1px solid rgba(28,28,26,0.06);}
+.opt:hover{padding-left:0.5rem;}
+.opt.selected{padding-left:0.5rem;}
+.opt-text{font-size:1rem;font-weight:300;color:#1C1C1A;line-height:1.5;}
+.opt-arrow{font-size:0.65rem;color:rgba(28,28,26,0.2);transition:color 200ms, transform 200ms;}
+.opt:hover .opt-arrow{color:#8B7355;transform:translateX(2px);}
+.opt.selected .opt-arrow{color:#8B7355;}
+.opt.selected .opt-text{color:#1C1C1A;font-weight:400;}
+
+/* NAV BUTTONS */
+.q-nav{display:flex;justify-content:flex-end;margin-top:3rem;}
+.btn-next{background:#1C1C1A;color:#F5F2ED;border:none;padding:1.1rem 2.4rem;font-size:0.52rem;letter-spacing:0.38em;text-transform:uppercase;cursor:pointer;font-family:'Outfit',sans-serif;opacity:0;transition:opacity 200ms ease-out;pointer-events:none;}
+.btn-next.visible{opacity:1;pointer-events:all;}
+.btn-next:hover{opacity:0.82;}
+
+/* RESULT */
+.result{display:none;padding:5rem 3rem;animation:fadeIn 400ms ease-out;}
+.result.active{display:block;}
+.r-tag{font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:#8B7355;font-weight:500;margin-bottom:2rem;display:block;}
+.r-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,8vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem;}
+.r-title em{font-style:italic;}
+.r-body{font-size:1rem;font-weight:300;line-height:2.2;color:rgba(28,28,26,0.75);max-width:480px;margin-bottom:3rem;}
+.r-services{display:flex;flex-direction:column;gap:0;margin-bottom:3rem;}
+.r-service{padding:1.4rem 0;border-top:1px solid rgba(28,28,26,0.06);display:flex;justify-content:space-between;align-items:center;text-decoration:none;}
+.r-service:last-child{border-bottom:1px solid rgba(28,28,26,0.06);}
+.r-service-name{font-size:0.95rem;font-weight:400;color:#1C1C1A;}
+.r-service-arrow{font-size:0.65rem;color:#8B7355;}
+.btn-cta{display:block;padding:1.4rem 2rem;background:#1C1C1A;color:#F5F2ED;font-size:0.52rem;letter-spacing:0.38em;text-transform:uppercase;text-decoration:none;text-align:center;margin-bottom:0.6rem;}
+.btn-restart{background:none;border:none;font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(28,28,26,0.35);cursor:pointer;font-family:'Outfit',sans-serif;margin-top:1.5rem;display:block;padding:0;}
+
+footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex;justify-content:space-between;align-items:center;}
+.fl{font-family:'Cormorant Garamond',serif;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,28,26,0.2);}
+.fr{font-size:0.48rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,28,26,0.18);text-align:right;line-height:2;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://soavitas.github.io/Soavitas/" class="n-logo">Soavitas</a>
+  <a href="https://soavitas.github.io/Soavitas/" class="n-back">← Home</a>
+</nav>
+
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span id="prog-text">Domanda 1 di 5</span>
+    <span id="prog-pct"></span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+</div>
+
+<div class="quiz" id="quiz-wrap">
+
+  <!-- Q1 -->
+  <div class="q-step active" id="q1">
+    <span class="q-num">01 / 05</span>
+    <h2 class="q-text">Per chi sta cercando<br><em>questo servizio?</em></h2>
+    <div class="options">
+      <button class="opt" onclick="select(1,'me')"><span class="opt-text">Per me</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(1,'familiare')"><span class="opt-text">Per un familiare</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(1,'paziente')"><span class="opt-text">Per un mio paziente</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(1,'struttura')"><span class="opt-text">Per la mia struttura</span><span class="opt-arrow">→</span></button>
+    </div>
+    <div class="q-nav"><button class="btn-next" id="next1" onclick="next(2)">Continua</button></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-step" id="q2">
+    <span class="q-num">02 / 05</span>
+    <h2 class="q-text">Qual è la situazione<br><em>in questo momento?</em></h2>
+    <div class="options">
+      <button class="opt" onclick="select(2,'postop')"><span class="opt-text">Recupero dopo un intervento chirurgico</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(2,'cognitiva')"><span class="opt-text">Fragilità cognitiva o Alzheimer</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(2,'cronico')"><span class="opt-text">Patologia cronica o terapia continuativa</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(2,'viaggio')"><span class="opt-text">Esigenza durante un viaggio o vacanza</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(2,'visita')"><span class="opt-text">Supporto per visite mediche o ospedale</span><span class="opt-arrow">→</span></button>
+    </div>
+    <div class="q-nav"><button class="btn-next" id="next2" onclick="next(3)">Continua</button></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-step" id="q3">
+    <span class="q-num">03 / 05</span>
+    <h2 class="q-text">Con che urgenza<br><em>serve?</em></h2>
+    <div class="options">
+      <button class="opt" onclick="select(3,'oggi')"><span class="opt-text">Entro oggi o domani</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(3,'settimana')"><span class="opt-text">Entro questa settimana</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(3,'mese')"><span class="opt-text">Sto pianificando per le prossime settimane</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(3,'valutando')"><span class="opt-text">Sto ancora valutando — voglio capire meglio</span><span class="opt-arrow">→</span></button>
+    </div>
+    <div class="q-nav"><button class="btn-next" id="next3" onclick="next(4)">Continua</button></div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-step" id="q4">
+    <span class="q-num">04 / 05</span>
+    <h2 class="q-text">Dove si trova<br><em>la persona?</em></h2>
+    <div class="options">
+      <button class="opt" onclick="select(4,'garda')"><span class="opt-text">Lago di Garda o dintorni</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(4,'milano')"><span class="opt-text">Milano o hinterland</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(4,'nord')"><span class="opt-text">Altra zona del Nord Italia</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(4,'viaggio')"><span class="opt-text">In viaggio — destinazione variabile</span><span class="opt-arrow">→</span></button>
+    </div>
+    <div class="q-nav"><button class="btn-next" id="next4" onclick="next(5)">Continua</button></div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-step" id="q5">
+    <span class="q-num">05 / 05</span>
+    <h2 class="q-text">Cosa è più importante<br><em>per lei?</em></h2>
+    <div class="options">
+      <button class="opt" onclick="select(5,'continuita')"><span class="opt-text">Avere sempre la stessa figura di riferimento</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(5,'rapidita')"><span class="opt-text">Intervento rapido, anche a breve preavviso</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(5,'piano')"><span class="opt-text">Un piano strutturato e monitorato nel tempo</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="select(5,'discrezione')"><span class="opt-text">Massima discrezione e riservatezza</span><span class="opt-arrow">→</span></button>
+    </div>
+    <div class="q-nav"><button class="btn-next" id="next5" onclick="showResult()">Scopra il servizio</button></div>
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div class="result" id="result">
+  <span class="r-tag" id="r-tag">Il servizio per Lei</span>
+  <h2 class="r-title" id="r-title">Titolo risultato</h2>
+  <p class="r-body" id="r-body">Descrizione risultato.</p>
+  <div class="r-services" id="r-services"></div>
+  <a href="https://soavitasagenda.as.me/introduttiva" target="_blank" class="btn-cta" id="r-cta">Parliamo del suo caso</a>
+  <button class="btn-restart" onclick="restart()">Ricomincia →</button>
+</div>
+
+<footer>
+  <div class="fl">Soavitas</div>
+  <div class="fr">Concierge Nursing<br>soavitasconciergenursing.com</div>
+</footer>
+
+<script>
+var answers = {};
+
+function select(q, val) {
+  answers[q] = val;
+  var opts = document.querySelectorAll('#q'+q+' .opt');
+  opts.forEach(function(o){ o.classList.remove('selected'); });
+  event.currentTarget.classList.add('selected');
+  var btn = document.getElementById('next'+q);
+  if(btn){ btn.classList.add('visible'); }
+}
+
+function next(n) {
+  var cur = n-1;
+  document.getElementById('q'+cur).classList.remove('active');
+  document.getElementById('q'+n).classList.add('active');
+  updateProgress(n);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateProgress(step) {
+  var pct = Math.round(((step-1)/5)*100);
+  document.getElementById('prog-fill').style.width = pct+'%';
+  document.getElementById('prog-text').textContent = 'Domanda '+step+' di 5';
+}
+
+function showResult() {
+  // Hide quiz, show result
+  document.getElementById('quiz-wrap').style.display = 'none';
+  document.getElementById('result').classList.add('active');
+  document.getElementById('prog-fill').style.width = '100%';
+  document.getElementById('prog-text').textContent = 'Completato';
+
+  // Logic
+  var a = answers;
+  var title, body, tag, services, cta;
+
+  // Express — urgency today
+  if(a[3] === 'oggi') {
+    tag = 'Risposta entro 1 ora';
+    title = 'Soavitas<br><em>Express.</em>';
+    body = 'La situazione non può aspettare. Il servizio Express garantisce risposta entro un\'ora e intervento nelle 3–4 ore successive, su disponibilità.';
+    services = [
+      {name:'Soavitas Express', url:'https://soavitas.github.io/services/soavitas-express.html'},
+      {name:'Scriva su WhatsApp', url:'https://wa.me/393516107418'},
+    ];
+    cta = 'https://wa.me/393516107418';
+    document.getElementById('r-cta').textContent = 'Scriva subito su WhatsApp';
+    document.getElementById('r-cta').href = cta;
+  }
+  // Viaggio
+  else if(a[2] === 'viaggio' || a[4] === 'viaggio') {
+    tag = 'Il servizio per chi non si ferma';
+    title = 'Concierge Nursing<br><em>In viaggio.</em>';
+    body = 'La sua cura non si interrompe quando si parte. Stessa figura, stessa storia clinica — ovunque.';
+    services = [
+      {name:'Scopra il servizio In viaggio', url:'https://soavitas.github.io/services/soavitas-viaggio.html'},
+      {name:'Cos\'è il Concierge Nursing', url:'https://soavitas.github.io/Soavitas/'},
+    ];
+  }
+  // Fragilità cognitiva
+  else if(a[2] === 'cognitiva') {
+    tag = 'Presenza e continuità';
+    title = 'Fragilità<br><em>Cognitiva.</em>';
+    body = 'Ogni nuovo volto è disorientamento. Con Soavitas la figura è sempre la stessa — e conosce la storia, le abitudini, le paure.';
+    services = [
+      {name:'Fragilità Cognitiva', url:'https://soavitas.github.io/services/soavitas-fragilita.html'},
+      {name:'Piani Terapeutici', url:'https://soavitas.github.io/services/soavitas-piani.html'},
+    ];
+  }
+  // Post-op
+  else if(a[2] === 'postop') {
+    tag = 'Recupero senza interruzioni';
+    title = 'Post-operatorio<br><em>dedicato.</em>';
+    body = 'La dimissione è un inizio, non una fine. Il recupero a casa, in hotel, ovunque — con una presenza clinica che conosce ogni dettaglio.';
+    services = [
+      {name:'Servizio Post-operatorio', url:'https://soavitas.github.io/services/soavitas-postop.html'},
+      {name:'Soavitas Express', url:'https://soavitas.github.io/services/soavitas-express.html'},
+    ];
+  }
+  // Piano terapeutico / cronico
+  else if(a[2] === 'cronico' || a[5] === 'piano') {
+    tag = 'Struttura e continuità';
+    title = 'Piano Terapeutico<br><em>personalizzato.</em>';
+    body = 'Un piano costruito su di Lei — non sulla categoria di diagnosi. Monitoraggio, farmaci, segnali. Tutto sotto controllo.';
+    services = [
+      {name:'Piani Terapeutici', url:'https://soavitas.github.io/services/soavitas-piani.html'},
+      {name:'Cos\'è il Concierge Nursing', url:'https://soavitas.github.io/Soavitas/'},
+    ];
+  }
+  // Visita / advocacy
+  else if(a[2] === 'visita') {
+    tag = 'Non da soli';
+    title = 'Clinical<br><em>Advocacy.</em>';
+    body = 'Accompagnamento alle visite, traduzione medica, supporto emotivo. Si prende nota. Si esce sapendo cosa fare.';
+    services = [
+      {name:'Clinical Advocacy', url:'https://soavitas.github.io/services/soavitas-advocacy.html'},
+      {name:'Prenoti una consulenza', url:'https://soavitasagenda.as.me/introduttiva'},
+    ];
+  }
+  // Default — consulenza
+  else {
+    tag = 'Il punto di partenza';
+    title = 'Una conversazione.<br><em>Prima di tutto.</em>';
+    body = 'La situazione è specifica — e il servizio deve esserlo. Una consulenza introduttiva è il modo migliore per capire insieme.';
+    services = [
+      {name:'Cos\'è il Concierge Nursing', url:'https://soavitas.github.io/Soavitas/'},
+      {name:'Tutti i servizi', url:'https://linktr.ee/soavitasconcierge'},
+    ];
+  }
+
+  document.getElementById('r-tag').textContent = tag;
+  document.getElementById('r-title').innerHTML = title;
+  document.getElementById('r-body').textContent = body;
+
+  var html = '';
+  services.forEach(function(s){
+    html += '<a class="r-service" href="'+s.url+'" target="_blank"><span class="r-service-name">'+s.name+'</span><span class="r-service-arrow">→</span></a>';
+  });
+  document.getElementById('r-services').innerHTML = html;
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function restart() {
+  answers = {};
+  document.querySelectorAll('.q-step').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('selected'); });
+  document.querySelectorAll('.btn-next').forEach(function(b){ b.classList.remove('visible'); });
+  document.getElementById('result').classList.remove('active');
+  document.getElementById('quiz-wrap').style.display = '';
+  document.getElementById('q1').classList.add('active');
+  document.getElementById('prog-fill').style.width = '0%';
+  document.getElementById('prog-text').textContent = 'Domanda 1 di 5';
+  document.getElementById('r-cta').textContent = 'Parliamo del suo caso';
+  document.getElementById('r-cta').href = 'https://soavitasagenda.as.me/introduttiva';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
