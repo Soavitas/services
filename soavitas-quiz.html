@@ -14,44 +14,44 @@ nav{padding:1.8rem 3rem;border-bottom:1px solid rgba(28,28,26,0.06);display:flex
 .n-logo{font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:#1C1C1A;text-decoration:none;}
 .n-back{font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(28,28,26,0.4);text-decoration:none;}
 
-.progress-wrap{padding:0 3rem;margin:2.5rem 0 0;}
+.progress-wrap{padding:0 3rem;margin:3rem 0 0;}
 .progress-label{font-size:0.52rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(28,28,26,0.35);margin-bottom:0.8rem;display:flex;justify-content:space-between;}
-.progress-bar{height:1px;background:rgba(28,28,26,0.1);}
+.progress-bar{height:1px;background:rgba(28,28,26,0.08);}
 .progress-fill{height:1px;background:#8B7355;transition:width 400ms cubic-bezier(0.25,0,0,1);width:0%;}
 
-.quiz{padding:5rem 3rem 4rem;min-height:70vh;display:flex;flex-direction:column;}
+.quiz{padding:6rem 3rem 5rem;min-height:75vh;display:flex;flex-direction:column;}
 .q-step{display:none;animation:fadeIn 350ms ease-out;flex-direction:column;}
 .q-step.active{display:flex;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 
-.q-num{font-size:0.52rem;letter-spacing:0.38em;text-transform:uppercase;color:#8B7355;margin-bottom:2rem;font-weight:500;}
-.q-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,7vw,3rem);font-weight:300;line-height:1.15;letter-spacing:-0.02em;margin-bottom:0.8rem;color:#1C1C1A;}
+.q-num{font-size:0.48rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(139,115,85,0.6);margin-bottom:2.5rem;font-weight:400;}
+.q-text{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,8vw,3.5rem);font-weight:300;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1rem;color:#1C1C1A;}
 .q-text em{font-style:italic;}
-.q-sub{font-size:0.88rem;font-weight:300;color:rgba(28,28,26,0.48);line-height:1.8;margin-bottom:2.5rem;max-width:420px;}
+.q-sub{font-size:0.9rem;font-weight:300;color:rgba(28,28,26,0.42);line-height:1.9;margin-bottom:3rem;max-width:400px;}
 
 .options{display:flex;flex-direction:column;gap:0;}
-.opt{padding:1.4rem 0;border-top:1px solid rgba(28,28,26,0.06);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:padding-left 200ms ease-out;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;}
+.opt{padding:1.6rem 0;border-top:1px solid rgba(28,28,26,0.06);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:padding-left 250ms cubic-bezier(0.25,0,0,1);background:none;border-left:none;border-right:none;border-bottom:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;}
 .opt:last-child{border-bottom:1px solid rgba(28,28,26,0.06);}
 .opt:hover{padding-left:0.6rem;}
 .opt.selected{padding-left:0.6rem;}
-.opt-text{font-size:1rem;font-weight:300;color:#1C1C1A;line-height:1.5;}
-.opt.selected .opt-text{font-weight:400;}
+.opt-text{font-size:1.02rem;font-weight:300;color:#1C1C1A;line-height:1.55;}
+.opt.selected .opt-text{font-weight:400;color:#1C1C1A;}
 .opt-arrow{font-size:0.65rem;color:rgba(28,28,26,0.18);transition:color 200ms,transform 200ms;}
 .opt:hover .opt-arrow,.opt.selected .opt-arrow{color:#8B7355;transform:translateX(2px);}
 
-.q-nav{display:flex;justify-content:flex-end;margin-top:3rem;}
-.btn-next{background:#1C1C1A;color:#F5F2ED;border:none;padding:1.1rem 2.4rem;font-size:0.52rem;letter-spacing:0.38em;text-transform:uppercase;cursor:pointer;font-family:'Outfit',sans-serif;opacity:0;transition:opacity 200ms ease-out;pointer-events:none;}
+.q-nav{display:flex;justify-content:flex-end;margin-top:3.5rem;}
+.btn-next{background:#1C1C1A;color:#F5F2ED;border:none;padding:1.2rem 2.8rem;font-size:0.5rem;letter-spacing:0.42em;text-transform:uppercase;cursor:pointer;font-family:'Outfit',sans-serif;opacity:0;transition:opacity 280ms ease-out;pointer-events:none;}
 .btn-next.visible{opacity:1;pointer-events:all;}
 .btn-next:hover{opacity:0.82;}
 
-.result{display:none;padding:5rem 3rem;animation:fadeIn 400ms ease-out;}
+.result{display:none;padding:7rem 3rem 5rem;animation:fadeIn 500ms ease-out;}
 .result.active{display:block;}
 .r-tag{font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:#8B7355;font-weight:500;margin-bottom:2rem;display:block;}
-.r-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,8vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem;}
+.r-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,9vw,4.5rem);font-weight:300;line-height:1.0;letter-spacing:-0.04em;margin-bottom:2rem;}
 .r-title em{font-style:italic;}
-.r-body{font-size:1rem;font-weight:300;line-height:2.2;color:rgba(28,28,26,0.75);max-width:480px;margin-bottom:3rem;}
+.r-body{font-size:1.02rem;font-weight:300;line-height:2.3;color:rgba(28,28,26,0.72);max-width:460px;margin-bottom:3.5rem;}
 .r-services{display:flex;flex-direction:column;gap:0;margin-bottom:3rem;}
-.r-service{padding:1.4rem 0;border-top:1px solid rgba(28,28,26,0.06);display:flex;justify-content:space-between;align-items:center;text-decoration:none;}
+.r-service{padding:1.6rem 0;border-top:1px solid rgba(28,28,26,0.06);display:flex;justify-content:space-between;align-items:center;text-decoration:none;transition:padding-left 200ms ease-out;}
 .r-service:last-child{border-bottom:1px solid rgba(28,28,26,0.06);}
 .r-service-name{font-size:0.95rem;font-weight:400;color:#1C1C1A;}
 .r-service-arrow{font-size:0.65rem;color:#8B7355;}
@@ -112,13 +112,13 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
   <!-- Q3 -->
   <div class="q-step" id="q3">
     <span class="q-num">03 / 05</span>
-    <h2 class="q-text">La continuità è<br><em>importante?</em></h2>
-    <p class="q-sub">Il Concierge Nursing si basa su una figura dedicata — sempre la stessa. Capire quanto questo conta aiuta a trovare il servizio giusto.</p>
+    <h2 class="q-text">Cosa si aspetta<br><em>da chi la assiste?</em></h2>
+    <p class="q-sub">Non descriviamo il nostro metodo — descriviamo il risultato che ottiene.</p>
     <div class="options">
-      <button class="opt" onclick="sel(3,'fondamentale')"><span class="opt-text">Fondamentale — voglio sempre la stessa persona</span><span class="opt-arrow">→</span></button>
-      <button class="opt" onclick="sel(3,'importante')"><span class="opt-text">Importante, ma non è l'unica cosa che conta</span><span class="opt-arrow">→</span></button>
-      <button class="opt" onclick="sel(3,'urgenza')"><span class="opt-text">In questo momento conta di più la rapidità</span><span class="opt-arrow">→</span></button>
-      <button class="opt" onclick="sel(3,'nonsocosa')"><span class="opt-text">Non so ancora bene cosa mi serve</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="sel(3,'efficienza')"><span class="opt-text">Gestione clinica precisa — farmaci, parametri, comunicazione con i medici</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="sel(3,'sollievo')"><span class="opt-text">Non dover pensare a nulla — qualcuno che sa già cosa fare</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="sel(3,'urgenza')"><span class="opt-text">Intervento rapido — la situazione non può aspettare</span><span class="opt-arrow">→</span></button>
+      <button class="opt" onclick="sel(3,'nonsocosa')"><span class="opt-text">Non so ancora bene — voglio capire cosa è possibile</span><span class="opt-arrow">→</span></button>
     </div>
     <div class="q-nav"><button class="btn-next" id="next3" onclick="go(4)">Continua</button></div>
   </div>
