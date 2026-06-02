@@ -26,7 +26,10 @@ a{text-decoration:none;color:inherit} button{font-family:inherit}
 .dest-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}.dest-scroll::-webkit-scrollbar{height:4px}.dest-scroll::-webkit-scrollbar-thumb{background:rgba(38,56,41,.2);border-radius:999px}.dest{min-width:min(76vw,340px);scroll-snap-align:start;padding:22px}.dest-tag{height:170px;border-radius:20px;border:1px solid rgba(38,56,41,.12);background:linear-gradient(145deg,rgba(221,229,215,.88),rgba(255,253,248,.8));display:flex;align-items:flex-end;padding:20px;font-family:'Libre Baskerville',serif;font-size:30px;line-height:1.1;color:var(--forest)}.dest h3{font-family:'Libre Baskerville',serif;font-size:23px;margin-top:18px;color:var(--forest);font-weight:400}.dest p{font-size:14px;line-height:1.75;color:var(--muted);margin-top:8px;font-weight:300}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.mini-card{padding:24px}.mini-card .n{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--olive);margin-bottom:12px}.mini-card h3{font-family:'Libre Baskerville',serif;font-size:21px;font-weight:400;color:var(--forest);margin-bottom:10px}.mini-card p{font-size:14px;line-height:1.8;color:var(--muted);font-weight:300}
 .acc{border-top:1px solid var(--line)}.acc:last-child{border-bottom:1px solid var(--line)}.acc button{width:100%;background:none;border:0;padding:22px 0;display:flex;justify-content:space-between;gap:18px;cursor:pointer;text-align:left}.acc-title{font-size:16px;color:var(--forest);font-weight:400}.plus{color:var(--olive)}.acc-body{display:none;padding:0 0 22px;color:var(--muted);font-size:14px;line-height:1.85;font-weight:300}.acc.open .acc-body{display:block}
-.quiz-box{padding:28px}.progress{height:2px;background:rgba(38,56,41,.12);border-radius:99px;overflow:hidden;margin:0 0 24px}.bar{height:100%;width:0;background:var(--sage);transition:.3s}.step,.result{display:none}.step.on,.result.on{display:block}.q-num{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--olive);margin-bottom:12px}.q-title{font-family:'Libre Baskerville',serif;font-size:28px;line-height:1.25;color:var(--forest);margin-bottom:22px}.opt{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.5);border-radius:18px;padding:16px 18px;margin-bottom:10px;text-align:left;display:flex;justify-content:space-between;gap:18px;cursor:pointer;color:var(--ink);font-size:14px;line-height:1.5;transition:.2s}.opt:hover{background:var(--sage2);transform:translateX(3px)}
+.quiz-box{padding:28px}.progress{height:2px;background:rgba(38,56,41,.12);border-radius:99px;overflow:hidden;margin:0 0 24px}.bar{height:100%;width:0;background:var(--sage);transition:.3s}.step,.result{display:none}.step.on,.result.on{display:block}.q-num{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--olive);margin-bottom:12px}.q-title{font-family:'Libre Baskerville',serif;font-size:28px;line-height:1.25;color:var(--forest);margin-bottom:22px}
+.opt{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.5);border-radius:18px;padding:16px 18px;margin-bottom:10px;text-align:left;display:flex;justify-content:space-between;gap:18px;cursor:pointer;color:var(--ink);font-size:14px;line-height:1.5;transition:.2s}
+.opt:hover:not(:disabled){background:var(--sage2);transform:translateX(3px)}
+.opt:disabled{opacity:.45;cursor:default;transform:none;}
 .res-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}.result-symbol{width:100%;max-width:260px;border:1px solid rgba(38,56,41,.16);background:linear-gradient(145deg,rgba(221,229,215,.8),rgba(255,253,248,.88));border-radius:22px;padding:20px;font-family:'Libre Baskerville',serif;font-size:24px;line-height:1.2;color:var(--forest)}.r-tag{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--olive);margin-bottom:10px}.r-title{font-family:'Libre Baskerville',serif;font-size:31px;line-height:1.18;color:var(--forest);font-weight:400;margin-bottom:12px}.r-text{font-size:15px;line-height:1.85;color:var(--muted);font-weight:300}.r-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.reset{margin-top:14px;background:none;border:0;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,26,21,.42);cursor:pointer}
 .cta{margin:54px 0 0;padding:54px clamp(22px,5vw,54px);background:var(--forest);color:var(--paper);border-radius:34px;position:relative;overflow:hidden}.cta h2{font-family:'Libre Baskerville',serif;font-size:clamp(38px,6vw,68px);line-height:1.1;font-weight:400;letter-spacing:-.03em}.cta p{max-width:520px;margin-top:18px;color:rgba(255,253,248,.68);line-height:1.85;font-weight:300}.cta .btn{margin-top:26px;background:var(--paper);color:var(--forest);border-color:var(--paper)}
 .footer{padding:40px clamp(18px,5vw,64px);display:flex;justify-content:space-between;gap:20px;color:rgba(23,26,21,.38);font-size:11px;letter-spacing:.16em;text-transform:uppercase}.reveal{opacity:0;transform:translateY(18px);transition:.7s ease}.reveal.in{opacity:1;transform:none}
@@ -59,7 +62,7 @@ a{text-decoration:none;color:inherit} button{font-family:inherit}
       </div>
     </div>
     <div class="stamp-stage reveal">
-      <div class="travel-card"><div class="label">Meta Soavitas</div><strong>Isola d’Elba</strong><small>Mare, recupero, ritmi lenti.</small></div>
+      <div class="travel-card"><div class="label">Meta Soavitas</div><strong>Isola d'Elba</strong><small>Mare, recupero, ritmi lenti.</small></div>
       <div class="travel-card"><div class="label">Soggiorni brevi</div><strong>Portofino</strong><small>Hotel, eventi, discrezione.</small></div>
       <div class="travel-card"><div class="label">Soggiorni lunghi</div><strong>Salento</strong><small>Famiglia, estate, continuità.</small></div>
       <div class="stage-note">Non una proposta turistica. Una presenza sanitaria discreta, quando il viaggio richiede lucidità, competenza e continuità.</div>
@@ -67,9 +70,9 @@ a{text-decoration:none;color:inherit} button{font-family:inherit}
   </div>
 </section>
 <section class="section wrap" id="mete">
-  <div class="section-head reveal"><h2 class="h2">Mete già conosciute.<br>O mete scelte da Lei.</h2><p class="sub">Possiamo proporre destinazioni dove siamo già stati e che conosciamo meglio. Oppure valutare una meta indicata dalla famiglia, in Italia o all’estero.</p></div>
+  <div class="section-head reveal"><h2 class="h2">Mete già conosciute.<br>O mete scelte da Lei.</h2><p class="sub">Possiamo proporre destinazioni dove siamo già stati e che conosciamo meglio. Oppure valutare una meta indicata dalla famiglia, in Italia o all'estero.</p></div>
   <div class="dest-scroll reveal">
-    <article class="dest card"><div class="dest-tag">Isola<br>d’Elba</div><h3>Isola d’Elba</h3><p>Una destinazione di respiro: mare, ritmi lenti, spostamenti da pianificare bene e assistenza da calibrare con anticipo.</p></article>
+    <article class="dest card"><div class="dest-tag">Isola<br>d'Elba</div><h3>Isola d'Elba</h3><p>Una destinazione di respiro: mare, ritmi lenti, spostamenti da pianificare bene e assistenza da calibrare con anticipo.</p></article>
     <article class="dest card"><div class="dest-tag">Portofino</div><h3>Portofino</h3><p>Per soggiorni brevi, eventi, hotel e contesti privati dove discrezione, tempi e presenza contano moltissimo.</p></article>
     <article class="dest card"><div class="dest-tag">Salento</div><h3>Salento</h3><p>Per chi desidera un viaggio più lungo, familiare o di recupero, con una presenza sanitaria leggera ma reale.</p></article>
   </div>
@@ -93,10 +96,10 @@ a{text-decoration:none;color:inherit} button{font-family:inherit}
   <div class="section-head reveal"><h2 class="h2">Quattro domande.<br>Una direzione.</h2><p class="sub">Il risultato non sostituisce una valutazione clinica: serve a capire da dove iniziare.</p></div>
   <div class="quiz-box card reveal">
     <div class="progress"><div class="bar" id="bar"></div></div>
-    <div class="step on" id="q1"><div class="q-num">01 / 04</div><h3 class="q-title">Che tipo di viaggio immagina?</h3><button class="opt" onclick="go(1,'accompagno')">Vorrei una presenza infermieristica durante il viaggio <span>→</span></button><button class="opt" onclick="go(1,'preparo')">Mi serve soprattutto prepararlo bene <span>→</span></button><button class="opt" onclick="go(1,'info')">Sto solo valutando possibilità e costi <span>→</span></button></div>
-    <div class="step" id="q2"><div class="q-num">02 / 04</div><h3 class="q-title">La persona ha fragilità cliniche o cognitive?</h3><button class="opt" onclick="go(2,'alta')">Sì, serve attenzione continua <span>→</span></button><button class="opt" onclick="go(2,'media')">Sì, ma la situazione è stabile <span>→</span></button><button class="opt" onclick="go(2,'bassa')">No, è più una sicurezza preventiva <span>→</span></button></div>
-    <div class="step" id="q3"><div class="q-num">03 / 04</div><h3 class="q-title">Quale meta La interessa di più?</h3><button class="opt" onclick="go(3,'elba')">Isola d’Elba <span>→</span></button><button class="opt" onclick="go(3,'portofino')">Portofino <span>→</span></button><button class="opt" onclick="go(3,'salento')">Salento <span>→</span></button><button class="opt" onclick="go(3,'altra')">Un’altra destinazione <span>→</span></button></div>
-    <div class="step" id="q4"><div class="q-num">04 / 04</div><h3 class="q-title">Quando partirebbe?</h3><button class="opt" onclick="go(4,'presto')">Entro poche settimane <span>→</span></button><button class="opt" onclick="go(4,'mese')">Tra uno o due mesi <span>→</span></button><button class="opt" onclick="go(4,'poi')">Più avanti, sto pianificando <span>→</span></button></div>
+    <div class="step on" id="q1"><div class="q-num">01 / 04</div><h3 class="q-title">Che tipo di viaggio immagina?</h3><button class="opt" onclick="go(1,'accompagno',this)">Vorrei una presenza infermieristica durante il viaggio <span>→</span></button><button class="opt" onclick="go(1,'preparo',this)">Mi serve soprattutto prepararlo bene <span>→</span></button><button class="opt" onclick="go(1,'info',this)">Sto solo valutando possibilità e costi <span>→</span></button></div>
+    <div class="step" id="q2"><div class="q-num">02 / 04</div><h3 class="q-title">La persona ha fragilità cliniche o cognitive?</h3><button class="opt" onclick="go(2,'alta',this)">Sì, serve attenzione continua <span>→</span></button><button class="opt" onclick="go(2,'media',this)">Sì, ma la situazione è stabile <span>→</span></button><button class="opt" onclick="go(2,'bassa',this)">No, è più una sicurezza preventiva <span>→</span></button></div>
+    <div class="step" id="q3"><div class="q-num">03 / 04</div><h3 class="q-title">Quale meta La interessa di più?</h3><button class="opt" onclick="go(3,'elba',this)">Isola d'Elba <span>→</span></button><button class="opt" onclick="go(3,'portofino',this)">Portofino <span>→</span></button><button class="opt" onclick="go(3,'salento',this)">Salento <span>→</span></button><button class="opt" onclick="go(3,'altra',this)">Un'altra destinazione <span>→</span></button></div>
+    <div class="step" id="q4"><div class="q-num">04 / 04</div><h3 class="q-title">Quando partirebbe?</h3><button class="opt" onclick="go(4,'presto',this)">Entro poche settimane <span>→</span></button><button class="opt" onclick="go(4,'mese',this)">Tra uno o due mesi <span>→</span></button><button class="opt" onclick="go(4,'poi',this)">Più avanti, sto pianificando <span>→</span></button></div>
     <div class="result" id="r-accompagno"><div class="res-grid"><div class="result-symbol" id="rsym1">Accompagnamento<br>dedicato</div><div><div class="r-tag">Risultato</div><h3 class="r-title">Accompagnamento dedicato.</h3><p class="r-text">La richiesta richiede una valutazione diretta: condizioni cliniche, durata, trasferimenti, farmaci, documentazione e disponibilità reale del team.</p><div class="r-actions"><a class="btn primary" href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20accompagnamento%20in%20viaggio">Scriva via email</a><a class="btn" href="https://soavitasagenda.as.me/introduttiva" target="_blank">Consulenza</a></div><button class="reset" onclick="resetQuiz()">Ricomincia</button></div></div></div>
     <div class="result" id="r-preparo"><div class="res-grid"><div class="result-symbol" id="rsym2">Preparazione<br>pre-partenza</div><div><div class="r-tag">Risultato</div><h3 class="r-title">Preparazione pre-partenza.</h3><p class="r-text">Può bastare un piano ordinato: documenti, farmaci, contatti, parametri da monitorare e indicazioni per ridurre gli imprevisti.</p><div class="r-actions"><a class="btn primary" href="mailto:info@soavitasconciergenursing.com?subject=Preparazione%20viaggio%20Soavitas">Scriva via email</a><a class="btn" href="https://soavitasagenda.as.me/introduttiva" target="_blank">Consulenza</a></div><button class="reset" onclick="resetQuiz()">Ricomincia</button></div></div></div>
     <div class="result" id="r-info"><div class="res-grid"><div class="result-symbol" id="rsym3">Richiesta<br>informativa</div><div><div class="r-tag">Risultato</div><h3 class="r-title">Prima richiesta informativa.</h3><p class="r-text">La cosa migliore è inviare meta, periodo, durata, bisogno principale e condizioni generali. Da lì si capisce se Soavitas può esserci.</p><div class="r-actions"><a class="btn primary" href="mailto:info@soavitasconciergenursing.com?subject=Informazioni%20Soavitas%20In%20Viaggio">Scriva via email</a><a class="btn" href="https://www.instagram.com/soavitas.nursing/" target="_blank">Instagram</a></div><button class="reset" onclick="resetQuiz()">Ricomincia</button></div></div></div>
@@ -109,10 +112,37 @@ a{text-decoration:none;color:inherit} button{font-family:inherit}
 function toggleMenu(){document.getElementById('menu').classList.toggle('open')}
 function acc(btn){const item=btn.parentElement;const open=item.classList.toggle('open');btn.querySelector('.plus').textContent=open?'−':'+'}
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-let data={};
-function go(q,v){data[q]=v;document.getElementById('q'+q).classList.remove('on');document.getElementById('bar').style.width=(q*25)+'%';if(q<4){document.getElementById('q'+(q+1)).classList.add('on');return}showResult()}
-function showResult(){document.getElementById('bar').style.width='100%';let id=data[1]==='accompagno'||data[2]==='alta'?'r-accompagno':(data[1]==='preparo'?'r-preparo':'r-info');document.getElementById(id).classList.add('on')}
-function resetQuiz(){data={};document.querySelectorAll('.step,.result').forEach(el=>el.classList.remove('on'));document.getElementById('q1').classList.add('on');document.getElementById('bar').style.width='0%'}
+
+var data={},answered=false;
+
+function go(q,v,btn){
+  var currentStep=document.getElementById('q'+q);
+  if(currentStep){currentStep.querySelectorAll('.opt').forEach(function(b){b.disabled=true;});}
+  data[q]=v;
+  document.getElementById('bar').style.width=(q*25)+'%';
+  if(q<4){
+    setTimeout(function(){
+      document.getElementById('q'+q).classList.remove('on');
+      document.getElementById('q'+(q+1)).classList.add('on');
+    },60);
+    return;
+  }
+  if(!answered){answered=true;setTimeout(showResult,60);}
+}
+
+function showResult(){
+  document.getElementById('bar').style.width='100%';
+  var id=data[1]==='accompagno'||data[2]==='alta'?'r-accompagno':(data[1]==='preparo'?'r-preparo':'r-info');
+  document.getElementById(id).classList.add('on');
+}
+
+function resetQuiz(){
+  data={};answered=false;
+  document.querySelectorAll('.step,.result').forEach(function(el){el.classList.remove('on');});
+  document.querySelectorAll('.opt').forEach(function(b){b.disabled=false;});
+  document.getElementById('q1').classList.add('on');
+  document.getElementById('bar').style.width='0%';
+}
 </script>
 </body>
 </html>
