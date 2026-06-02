@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soavitas EXCLUSIVE | Private Concierge Nursing</title>
+<link href="https://googleapis.com" rel="stylesheet">
+<style>
+/* ── Reset e Struttura Neuro-Estetica Old Money ── */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+    font-family:'Inter', 'Georgia', serif;
+    background:#161210; /* Testa di moro profonda */
+    color:#F9F6F0; /* Avorio antico seta */
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+}
+
+/* ── Spacing System Geometrico ── */
+.s9{padding:13rem 3rem 11rem 3rem;}
+.s7{padding:10rem 3rem;}
+.bb{border-bottom:1px solid rgba(249,246,240,0.03); margin:0 3rem;}
+
+/* ── Nav Minimalista ── */
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(22,18,16,0.92);
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+    padding:2.5rem 3rem;
+    border-bottom:1px solid rgba(249,246,240,0.02);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.n-logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.05rem;
+    font-weight:300;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:#F9F6F0;
+    text-decoration:none;
+    transition:color 400ms ease;
+}
+.n-logo:hover{color:#B89C72;}
+.n-back{
+    font-size:0.6rem;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:rgba(249,246,240,0.3);
+    text-decoration:none;
+    transition:color 400ms ease;
+}
+.n-back:hover{color:#F9F6F0;}
+
+/* ── Tag e Visual Anchors ── */
+.tag{
+    font-size:0.55rem;
+    letter-spacing:0.4em;
+    text-transform:uppercase;
+    color:rgba(184,156,114,0.6);
+    display:block;
+    margin-bottom:3rem;
+    font-weight:400;
+}
+.tag-gold{
+    color:#B89C72;
+    font-size:0.7rem;
+    font-weight:400;
+    letter-spacing:0.3em;
+}
+
+/* ── Headings Monumentali Aristocratici ── */
+.h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(3.5rem,11vw,6.8rem);
+    font-weight:300;
+    line-height:1.05;
+    letter-spacing:-0.04em;
+    margin-bottom:4rem;
+    color:#F9F6F0;
+}
+.h1 em{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-weight:300;
+}
+.h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.4rem,8vw,4.3rem);
+    font-weight:300;
+    line-height:1.15;
+    letter-spacing:-0.03em;
+    margin-bottom:4rem;
+    color:#F9F6F0;
+}
+.h2 em{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-weight:300;
+}
+
+/* ── Corpi di Testo Editoriali Leggeri ── */
+.lead{
+    font-size:1.18rem;
+    font-weight:200;
+    line-height:2.4;
+    color:rgba(249,246,240,0.88);
+    max-width:620px;
+    margin-bottom:0.8rem;
+    letter-spacing:0.02em;
+}
+.defn{
+    font-size:0.75rem;
+    letter-spacing:0.22em;
+    color:rgba(249,246,240,0.35);
+    margin-bottom:4rem;
+    text-transform:uppercase;
+    font-weight:300;
+}
+.defn a{
+    color:rgba(249,246,240,0.5);
+    text-decoration:none;
+    border-bottom:1px solid rgba(184,156,114,0.3);
+    padding-bottom:2px;
+    transition:color 300ms ease;
+}
+.defn a:hover{
+    color:#B89C72;
+}
+
+/* ── Pulsanti e Collegamenti Ipertestuali ── */
+.btn-hero{
+    display:inline-block;
+    padding:1.4rem 3rem;
+    background:#F9F6F0;
+    color:#161210;
+    font-size:0.58rem;
+    letter-spacing:0.4em;
+    text-transform:uppercase;
+    text-decoration:none;
+    font-weight:400;
+    transition:transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background 400ms ease;
+}
+.btn-hero:hover{
+    background:#B89C72;
+    transform:translateY(-2px);
+}
+.btn-main{
+    display:block;
+    padding:1.6rem 2rem;
+    background:#F9F6F0;
+    color:#161210;
+    font-size:0.58rem;
+    letter-spacing:0.4em;
+    text-transform:uppercase;
+    border:none;
+    cursor:pointer;
+    width:100%;
+    position:relative;
+    font-weight:400;
+    transition:background 300ms ease, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration:none;
+    text-align:center;
+}
+.btn-main:hover{
+    background:#B89C72;
+    transform:translateY(-1px);
+}
+.lnk-text{
+    color:#B89C72;
+    text-decoration:none;
+    border-bottom:1px solid rgba(184,156,114,0.4);
+    padding-bottom:1px;
+    transition:color 300ms ease;
+}
+.lnk-text:hover{
+    color:#F9F6F0;
+}
+
+/* ── Blocco di Scarsità Direzionale ── */
+.ps{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(249,246,240,0.04);margin-top:0.5rem;}
+.ps-col{padding:3.5rem 0;}
+.ps-col:first-child{padding-right:4rem;border-right:1px solid rgba(249,246,240,0.04);}
+.ps-col:last-child{padding-left:4rem;}
+.ps-label{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:#B89C72;margin-bottom:1.5rem;display:block;font-weight:400;}
+.ps-text{font-size:0.98rem;font-weight:200;line-height:2.3;color:rgba(249,246,240,0.6);letter-spacing:0.02em;}
+.ps-strong{color:#F9F6F0;font-weight:400;}
+
+/* ── Carosello Orizzontale Heritage ── */
+.sw{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    margin:4rem -3rem 0;
+    padding:0 3rem 2.5rem 3rem;
+    scrollbar-width:none;
+    scroll-snap-type:x mandatory;
+}
+.sw::-webkit-scrollbar{display:none;}
+.sr{
+    display:flex;
+    gap:2rem;
+    width:max-content;
+}
+.card{
+    width:80vw;
+    max-width:360px;
+    flex-shrink:0;
+    padding:4rem 2.8rem;
+    background:#1E1916; /* Tonalità calda boiserie */
+    border:1px solid rgba(249,246,240,0.02);
+    scroll-snap-align:start;
+    transition:border-color 500ms ease, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card:hover{
+    border-color:rgba(184,156,114,0.25);
+    transform:translateY(-4px);
+}
+.c-tag{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:#B89C72;margin-bottom:1.5rem;font-weight:400;display:block;}
+.c-h{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:#F9F6F0;margin-bottom:1.2rem;line-height:1.35;letter-spacing:-0.01em;}
+.c-b{font-size:0.92rem;font-weight:200;color:rgba(249,246,240,0.6);line-height:2.0;letter-spacing:0.01em;}
+.hint{font-size:0.55rem;letter-spacing:0.25em;color:rgba(249,246,240,0.25);text-transform:uppercase;margin-top:2rem;text-align:right;}
+
+/* ── Righe dei Pilastri ── */
+.row{
+    display:flex;
+    gap:3.5rem;
+    align-items:baseline;
+    padding:3.5rem 0;
+    border-top:1px solid rgba(249,246,240,0.03);
+}
+.dash{font-size:0.55rem;color:#B89C72;flex-shrink:0;transition:transform 400ms ease;font-weight:300;}
+.row:hover .dash{transform:translateX(6px);}
+.row-content{flex-grow:1;}
+.row-t{font-size:1.18rem;font-weight:300;color:#F9F6F0;margin-bottom:0.8rem;letter-spacing:0.03em;}
+.row-b{font-size:0.95rem;font-weight:200;color:rgba(249,246,240,0.65);line-height:2.1;letter-spacing:0.01em;}
+
+/* ── Caso Reale Monolitico ── */
+.case-card{border-top:1px solid rgba(249,246,240,0.05);padding-top:3.5rem;margin-top:3rem;}
+.case-text{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:300;line-height:1.65;color:#F9F6F0;margin-bottom:1.8rem;font-style:italic;max-width:750px;letter-spacing:-0.02em;}
+.case-cite{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:#B89C72;font-weight:400;}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+    <a href="#" class="n-logo">Soavitas Exclusive</a>
+    <a href="https://github.io" class="n-back" target="_blank">Private Client Desk</a>
+</nav>
+
+<!-- ── Sezione 1: HERO SCREEN ── -->
+<section class="s9 bb">
+    <span class="tag tag-gold">Clinical Concierge d'Élite — Direzione Diretta</span>
+    <h1 class="h1">IL RANGO DELLE<br>VOSTRE <em>RADICI</em>.</h1>
+    <p class="lead">La stabilità biologica e il monitoraggio clinico avanzato all'interno delle dimore di prestigio. Riservato a chi esige un presidio infermieristico d'élite e un'infrastruttura invisibile per la tutela dei propri genitori, protetta dal più rigoroso isolamento dai circuiti di massa.</p>
+    <p class="defn">Sedi di Presidio: <a href="https://github.io" target="_blank">Milano — Lago di Garda — Costa Amalfitana — Salento — Toscana — Sardegna</a> — <a href="https://github.io" target="_blank">Estero</a></p>
+    <a href="#application" class="btn-hero">Richiedi la Verifica di Fattibilità</a>
+</section>
+
+<!-- ── Sezione 2: IL MANIFESTO DELLA SCARSITÀ REALE ── -->
+<section class="s7 bb">
+    <span class="tag">Il Manifesto della Scarsità</span>
+    <h2 class="h2">Un privilegio per pochi.<br><em>Una limitazione fisica inderogabile.</em></h2>
+    
+    <div class="ps">
+        <div class="ps-col">
+            <span class="ps-label">La Consapevolezza</span>
+            <p class="ps-text">Sappiamo che accedere a un presidio continuativo di questa entità rappresenta un privilegio d'accesso unico sul mercato. Tuttavia, la totale dedizione logistica e il rispetto rigoroso della segretezza impongono un limite oggettivo non negoziabile.</p>
+        </div>
+        <div class="ps-col">
+            <span class="ps-label">Presidi Attivi</span>
+            <p class="ps-text">Soavitas EXCLUSIVE è interamente governato dai fondatori in prima persona. Ci rammarica dover imporre questa restrizione, ma <span class="ps-strong">possiamo prendere in carico un numero strettamente limitato di Clienti Privati in modo continuativo</span>. Per questa ragione, l'attivazione e la stessa reperibilità immediata non sono sempre disponibili.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── Sezione 3: IL PROTOCOLLO A SCORRIMENTO ORIZZONTALE ── -->
+<section class="s7 bb">
+    <span class="tag">Il Metodo Scientifico</span>
+    <h2 class="h2">Il Protocollo di Presenza<br><em>in Cinque Fasi</em></h2>
