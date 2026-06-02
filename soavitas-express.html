@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Soavitas Express | Assistenza infermieristica rapida</title>
+<meta name="description" content="Soavitas Express: contatto rapido per prestazioni infermieristiche non emergenziali, soggette a disponibilità e valutazione clinica." />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,300;1,6..96,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17090d;
+  --black:#070204;
+  --cream:#F4ECE7;
+  --warm:#FFF8F4;
+  --gold:#B88A5A;
+  --sage:#7A1F2D;
+  --sage-dark:#3A0812;
+  --muted:rgba(16,16,15,.60);
+  --line:rgba(16,16,15,.13);
+  --white:rgba(255,255,255,.92);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1rem clamp(1rem,4vw,2.2rem);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(58,8,18,.78);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.logo{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.2rem;letter-spacing:.04em;color:#fff}
+.nav-right{display:flex;align-items:center;gap:.7rem}
+.langs{font-size:.6rem;letter-spacing:.18em;color:rgba(255,255,255,.72);text-transform:uppercase;white-space:nowrap}
+.menu-btn{
+  border:1px solid rgba(255,255,255,.34);background:transparent;color:#fff;
+  border-radius:999px;padding:.55rem .78rem;letter-spacing:.13em;text-transform:uppercase;font-size:.62rem;
+  cursor:pointer;
+}
+.menu-panel{
+  position:fixed;inset:0 0 auto auto;width:min(420px,100vw);height:100vh;z-index:1100;
+  background:var(--warm);transform:translateX(105%);
+  transition:transform .28s ease;box-shadow:-18px 0 60px rgba(0,0,0,.22);
+  padding:1.2rem;display:flex;flex-direction:column;
+}
+.menu-panel.open{transform:translateX(0)}
+.menu-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:1rem}
+.menu-title{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.2rem;color:var(--sage-dark)}
+.close-btn{border:0;background:transparent;font-size:1.8rem;cursor:pointer;line-height:1;color:var(--ink)}
+.menu-links{padding:1.1rem 0;display:grid;gap:.55rem}
+.menu-link{
+  border:1px solid var(--line);border-radius:16px;padding:.95rem;background:#fff;
+  display:flex;justify-content:space-between;gap:1rem;align-items:center;
+}
+.menu-link strong{display:block;font-family:'Libre Baskerville',serif;font-weight:400;font-size:1rem;color:var(--ink)}
+.menu-link span{display:block;font-size:.78rem;color:var(--muted);margin-top:.16rem}
+.menu-foot{margin-top:auto;font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1rem}
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:1050;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.backdrop.open{opacity:1;pointer-events:auto}
+
+.hero{
+  min-height:92svh;background:linear-gradient(135deg,#070204 0%,#3A0812 48%,#7A1F2D 100%);
+  color:#fff;padding:8rem clamp(1.25rem,6vw,6rem) 4rem;display:grid;align-items:end;
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(260px,.88fr);gap:clamp(2rem,6vw,5rem);align-items:end;max-width:1120px;margin:0 auto;width:100%}
+.kicker{font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.64);margin-bottom:1rem}
+h1{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(4rem,12vw,8rem);line-height:.88;letter-spacing:-.045em;margin-bottom:1.15rem}
+h1 em{font-style:italic;color:var(--gold);font-weight:300}
+.hero-copy{font-family:'Libre Baskerville',serif;font-size:clamp(1.05rem,2.2vw,1.42rem);color:rgba(255,255,255,.84);max-width:680px;line-height:1.55}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:999px;padding:.86rem 1.12rem;font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;min-height:46px;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:#fff;color:#090909}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-outline{border-color:rgba(255,255,255,.34);color:#fff;background:transparent}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-soft{background:#fff;border-color:var(--line);color:var(--ink)}
+.hero-card{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);border-radius:24px;padding:1.35rem}
+.hero-card .big{font-family:'Bodoni Moda',serif;font-size:clamp(2.25rem,5vw,3.6rem);line-height:1;color:#fff;letter-spacing:-.035em}
+.hero-card .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.66);margin-top:.15rem}
+.hero-card p{margin-top:1rem;color:rgba(255,255,255,.78);font-size:.95rem}
+.hero-note{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.70);font-size:.84rem}
+
+section{padding:clamp(3.5rem,7vw,6rem) clamp(1.2rem,5vw,5rem)}
+.inner{max-width:1120px;margin:0 auto}
+.eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+h2{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(2.4rem,7vw,5rem);line-height:.96;letter-spacing:-.04em;margin-bottom:1.1rem}
+h2 em{font-style:italic;color:var(--sage);font-weight:300}
+.lead{font-family:'Libre Baskerville',serif;font-size:clamp(1rem,2vw,1.25rem);color:rgba(16,16,15,.72);max-width:760px;line-height:1.62}
+
+.quiz-wrap{background:var(--warm)}
+.quiz-wrap.top-quiz{padding-top:7.4rem}
+.quiz-card{margin-top:2rem;border:1px solid var(--line);background:#fff;border-radius:26px;overflow:hidden}
+.quiz-top{padding:1rem 1.15rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:1rem;color:var(--muted);font-size:.75rem;letter-spacing:.11em;text-transform:uppercase}
+.progress{height:4px;background:rgba(16,16,15,.08);border-radius:999px;overflow:hidden;flex:1;max-width:180px}
+.progress span{display:block;height:100%;width:33%;background:var(--gold);border-radius:999px;transition:width .25s ease}
+.quiz-body{padding:clamp(1.15rem,4vw,2rem)}
+.question{display:none}
+.question.active{display:block}
+.question h3{font-family:'Libre Baskerville',serif;font-weight:400;font-size:clamp(1.28rem,4.4vw,1.9rem);line-height:1.28;margin-bottom:1rem}
+.question p{color:var(--muted);margin-bottom:1.2rem;max-width:650px}
+.options{display:grid;gap:.7rem}
+.option{width:100%;text-align:left;background:var(--warm);border:1px solid rgba(16,16,15,.09);border-radius:18px;padding:.95rem 1rem;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.option span:first-child{font-size:1rem}
+.option span:last-child{color:var(--gold)}
+.result{display:none}
+.result.active{display:block}
+.result .badge{display:inline-block;border:1px solid rgba(184,146,74,.36);color:var(--gold);border-radius:999px;padding:.38rem .68rem;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+.result h3{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(2rem,6vw,4rem);line-height:.98;margin-bottom:.8rem;letter-spacing:-.035em}
+.result p{font-size:1rem;color:rgba(16,16,15,.72);max-width:720px;margin-bottom:1.2rem}
+.result-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
+.restart{border:0;background:transparent;color:var(--muted);text-decoration:underline;cursor:pointer;margin-top:1rem;font-size:.9rem}
+.safety{border-left:3px solid #7A1F2D;padding-left:1rem}
+.safety h3{color:#7A1F2D}
+
+.service-grid{margin-top:2rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem}
+.service{background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.15rem;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.service h3{font-family:'Libre Baskerville',serif;font-weight:400;font-size:1.08rem;margin-bottom:.5rem}
+.service p{font-size:.9rem;color:var(--muted)}
+.service small{margin-top:1rem;color:var(--gold);letter-spacing:.13em;text-transform:uppercase;font-size:.62rem}
+
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:1.3rem;align-items:start}
+.panel{border-radius:26px;border:1px solid var(--line);background:#fff;padding:clamp(1.25rem,4vw,2rem)}
+.panel.dark{background:var(--ink);color:#fff;border-color:rgba(255,255,255,.08)}
+.panel h3{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(1.9rem,5vw,3.4rem);line-height:1;letter-spacing:-.035em;margin-bottom:.85rem}
+.panel p{color:rgba(16,16,15,.68)}
+.panel.dark p{color:rgba(255,255,255,.72)}
+.not-list{display:grid;gap:.7rem;margin-top:1rem}
+.not-link{display:flex;justify-content:space-between;gap:1rem;align-items:center;background:var(--warm);border-radius:16px;padding:.9rem 1rem;border:1px solid var(--line)}
+.not-link strong{font-family:'Libre Baskerville',serif;font-weight:400}
+.not-link span{color:var(--gold);font-size:.82rem}
+
+.cta{background:linear-gradient(135deg,var(--sage-dark),#070204);color:#fff;text-align:center}
+.cta h2{color:#fff}
+.cta .lead{color:rgba(255,255,255,.75);margin:0 auto}
+.cta-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem}
+.contact-strip{margin-top:1.2rem;display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;color:rgba(255,255,255,.64);font-size:.82rem}
+.contact-strip a{border-bottom:1px solid rgba(184,146,74,.5);padding-bottom:.08rem}
+
+footer{padding:2rem clamp(1.2rem,5vw,5rem);background:#070204;color:rgba(255,255,255,.65)}
+.footer-inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}
+.footer-logo{font-family:'Libre Baskerville',serif;font-style:italic;color:#fff;font-size:1.2rem}
+.footer-links{display:flex;gap:1rem;flex-wrap:wrap;font-size:.78rem}
+.footer-links a{border-bottom:1px solid rgba(184,146,74,.35)}
+
+@media(max-width:820px){
+  .hero{padding-top:6.8rem;min-height:auto}
+  .hero-grid,.split{grid-template-columns:1fr}
+  .hero-card{max-width:440px}
+  .service-grid{grid-template-columns:1fr}
+  .langs{display:none}
+  .btn{width:100%}
+  .hero-actions,.result-actions,.cta-actions{width:100%}
+  .option{padding:.95rem}
+  section{padding-left:1rem;padding-right:1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="backdrop" id="backdrop" onclick="toggleMenu(false)"></div>
+<aside class="menu-panel" id="menuPanel" aria-hidden="true">
+  <div class="menu-head">
+    <div class="menu-title">Soavitas</div>
+    <button class="close-btn" type="button" aria-label="Chiudi menu" onclick="toggleMenu(false)">×</button>
+  </div>
+  <div class="menu-links">
+    <a class="menu-link" href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener"><div><strong>Home</strong><span>Portale principale Soavitas</span></div><span>→</span></a>
+    <a class="menu-link" href="#quiz"><div><strong>Express</strong><span>Prestazioni rapide non emergenziali</span></div><span>→</span></a>
+    <a class="menu-link" href="https://soavitas.github.io/services/soavitas-piani.html"><div><strong>Piani terapeutici</strong><span>Terapie, parametri, continuità</span></div><span>→</span></a>
+    <a class="menu-link" href="https://soavitas.github.io/services/soavitas-advocacy.html"><div><strong>Clinical Advocacy</strong><span>Supporto nelle visite e nei percorsi</span></div><span>→</span></a>
+    <a class="menu-link" href="https://soavitasagenda.as.me/InViaggio" target="_blank" rel="noopener"><div><strong>In viaggio</strong><span>Supporto durante soggiorni e rientri</span></div><span>→</span></a>
+    <a class="menu-link" href="https://www.instagram.com/soavitas.nursing/" target="_blank" rel="noopener"><div><strong>Instagram</strong><span>Pagina Soavitas Nursing</span></div><span>→</span></a>
+  </div>
+  <div class="menu-foot">Solo su appuntamento · IT · EN · FR · عربي su richiesta</div>
+</aside>
+
+<nav class="nav" id="nav">
+  <a class="logo" href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Soavitas</a>
+  <div class="nav-right">
+    <div class="langs">IT · EN · FR · عربي</div>
+    <button class="menu-btn" type="button" onclick="toggleMenu(true)">Menu</button>
+  </div>
+</nav>
+
+<section class="quiz-wrap top-quiz" id="quiz">
+  <div class="inner">
+    <p class="eyebrow">Soavitas Express</p>
+    <h2>Prima verifichi<br><em>il canale corretto.</em></h2>
+    <p class="lead">Tre domande rapide per capire se la richiesta può essere gestita come prestazione Express, se è più indicata una consulenza o se occorre attivare subito il 112/118.</p>
+
+    <div class="quiz-card">
+      <div class="quiz-top"><span id="stepLabel">Domanda 1 di 3</span><div class="progress"><span id="progressBar"></span></div></div>
+      <div class="quiz-body">
+        <div class="question active" data-step="1">
+          <h3>C’è dolore intenso, difficoltà respiratoria, perdita di coscienza o sanguinamento abbondante?</h3>
+          <p>In presenza di questi segnali la priorità è la sicurezza immediata.</p>
+          <div class="options">
+            <button class="option" onclick="showResult('emergency')"><span>Sì</span><span>→</span></button>
+            <button class="option" onclick="goStep(2)"><span>No</span><span>→</span></button>
+          </div>
+        </div>
+        <div class="question" data-step="2">
+          <h3>La situazione è peggiorata rapidamente nelle ultime ore?</h3>
+          <p>Un peggioramento rapido richiede prudenza e valutazione sanitaria tempestiva.</p>
+          <div class="options">
+            <button class="option" onclick="showResult('doubt')"><span>Sì, sta peggiorando</span><span>→</span></button>
+            <button class="option" onclick="goStep(3)"><span>No, è stabile o gestibile</span><span>→</span></button>
+          </div>
+        </div>
+        <div class="question" data-step="3">
+          <h3>Di cosa ha bisogno?</h3>
+          <p>Express è indicato quando la richiesta è chiara e compatibile con una prestazione infermieristica.</p>
+          <div class="options">
+            <button class="option" onclick="showResult('express')"><span>Medicazione, infusione, monitoraggio, catetere o rimozione punti</span><span>→</span></button>
+            <button class="option" onclick="showResult('consult')"><span>Non lo so ancora, vorrei orientarmi</span><span>→</span></button>
+          </div>
+        </div>
+
+        <div class="result safety" id="result-emergency">
+          <span class="badge">Attenzione</span>
+          <h3>Chiami subito il 112/118.</h3>
+          <p>I sintomi indicati richiedono una valutazione medica immediata. Soavitas Express non sostituisce il sistema di emergenza.</p>
+          <div class="result-actions"><a class="btn btn-dark" href="tel:112">Chiami il 112</a><a class="btn btn-soft" href="tel:118">Chiami il 118</a></div>
+          <button class="restart" onclick="restartQuiz()">Ricomincia il quiz →</button>
+        </div>
+
+        <div class="result safety" id="result-doubt">
+          <span class="badge">Prudenza</span>
+          <h3>Prima serve sicurezza clinica.</h3>
+          <p>Se la situazione peggiora rapidamente, contatti il 112/118, il medico di riferimento o il Pronto Soccorso. Se viene esclusa l’urgenza, può scriverci.</p>
+          <div class="result-actions"><a class="btn btn-dark" href="tel:112">Chiami il 112</a><a class="btn btn-soft" href="tel:118">Chiami il 118</a><a class="btn btn-soft" href="https://wa.me/393516107418?text=Salve%2C%20ho%20un%20dubbio%20su%20Soavitas%20Express" target="_blank" rel="noopener">Scriva su WhatsApp</a></div>
+          <button class="restart" onclick="restartQuiz()">Ricomincia →</button>
+        </div>
+
+        <div class="result" id="result-express">
+          <span class="badge">Richiesta compatibile</span>
+          <h3>Può scriverci su WhatsApp.</h3>
+          <p>La richiesta sembra compatibile con Soavitas Express. Verranno valutati disponibilità, zona, documentazione e appropriatezza clinica prima di confermare l’intervento.</p>
+          <div class="result-actions"><a class="btn btn-dark" href="https://wa.me/393516107418?text=Salve%2C%20ho%20bisogno%20del%20servizio%20Express%20Soavitas" target="_blank" rel="noopener">WhatsApp Express</a><a class="btn btn-soft" href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20Soavitas%20Express">Email info</a><a class="btn btn-soft" href="https://www.instagram.com/soavitas.nursing/" target="_blank" rel="noopener">Instagram</a></div>
+          <button class="restart" onclick="restartQuiz()">Ricomincia →</button>
+        </div>
+
+        <div class="result" id="result-consult">
+          <span class="badge">Meglio orientarsi</span>
+          <h3>Parta da una consulenza.</h3>
+          <p>Quando il bisogno non è ancora chiaro, una consulenza introduttiva permette di ordinare la situazione senza forzare una prestazione rapida.</p>
+          <div class="result-actions"><a class="btn btn-dark" href="https://soavitasagenda.as.me/introduttiva" target="_blank" rel="noopener">Prenoti una consulenza</a><a class="btn btn-soft" href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20informazioni%20Soavitas">Email info</a><a class="btn btn-soft" href="https://wa.me/393516107418?text=Salve%2C%20vorrei%20capire%20quale%20servizio%20Soavitas%20fa%20per%20me" target="_blank" rel="noopener">WhatsApp</a></div>
+          <button class="restart" onclick="restartQuiz()">Ricomincia →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="kicker">Soavitas Express</div>
+      <h1>Serve<br><em>ora.</em></h1>
+      <p class="hero-copy">Per prestazioni infermieristiche rapide, quando il bisogno è concreto ma non è un’emergenza. Riscontro rapido, compatibilmente con disponibilità, zona e appropriatezza clinica.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/393516107418?text=Salve%2C%20ho%20bisogno%20del%20servizio%20Express%20Soavitas" target="_blank" rel="noopener">Scriva su WhatsApp</a>
+        <a class="btn btn-outline" href="#contatti">Contatti Soavitas</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="big">Entro 60 min</div>
+      <div class="label">Obiettivo di primo riscontro</div>
+      <p>Non è una garanzia automatica di intervento: prima vengono valutati disponibilità, distanza e appropriatezza della richiesta.</p>
+      <div class="hero-note">Canale rapido: WhatsApp. Per richieste non urgenti restano disponibili email, consulenza e Instagram.</div>
+    </div>
+  </div>
+</header>
+
+
+
+<section>
+  <div class="inner">
+    <p class="eyebrow">Prestazioni Express</p>
+    <h2>Cosa può essere<br><em>valutato.</em></h2>
+    <p class="lead">Prestazioni rapide, non emergenziali, quando il bisogno è circoscritto e compatibile con l’intervento infermieristico.</p>
+    <div class="service-grid">
+      <div class="service"><div><h3>Rimozione punti</h3><p>Post-operatorio, suture, controllo della medicazione finale.</p></div><small>Su valutazione</small></div>
+      <div class="service"><div><h3>Medicazione semplice</h3><p>Ferite superficiali, abrasioni, medicazioni già indicate.</p></div><small>Express</small></div>
+      <div class="service"><div><h3>Medicazione complessa</h3><p>Ferite chirurgiche, post-operatorio avanzato, gestione più delicata.</p></div><small>Da valutare</small></div>
+      <div class="service"><div><h3>Monitoraggio parametri</h3><p>Pressione, saturazione, frequenza, glicemia e osservazione clinica.</p></div><small>Rapido</small></div>
+      <div class="service"><div><h3>Infusioni endovenose</h3><p>Solo con prescrizione o indicazione appropriata e condizioni compatibili.</p></div><small>Con documenti</small></div>
+      <div class="service"><div><h3>Catetere vescicale</h3><p>Posizionamento, sostituzione o gestione, secondo necessità clinica.</p></div><small>Su richiesta</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner split">
+    <div class="panel dark">
+      <p class="eyebrow">Costo</p>
+      <h3>Comunicazione chiara.</h3>
+      <p>Express prevede una maggiorazione rispetto alla tariffa ordinaria. Il costo viene comunicato prima dell’intervento, insieme a disponibilità e condizioni operative.</p>
+    </div>
+    <div class="panel">
+      <p class="eyebrow">Quando non è Express</p>
+      <h3>Alcuni bisogni richiedono più tempo.</h3>
+      <p>Quando servono continuità, accompagnamento clinico o una valutazione più ampia, è più corretto usare un altro servizio.</p>
+      <div class="not-list">
+        <a class="not-link" href="https://soavitas.github.io/services/soavitas-piani.html"><strong>Piani Terapeutici</strong><span>apra →</span></a>
+        <a class="not-link" href="https://soavitas.github.io/services/soavitas-advocacy.html"><strong>Clinical Advocacy</strong><span>apra →</span></a>
+        <a class="not-link" href="https://soavitasagenda.as.me/InViaggio" target="_blank" rel="noopener"><strong>In viaggio con Soavitas</strong><span>prenoti →</span></a>
+        <a class="not-link" href="mailto:info@soavitasconciergenursing.com?subject=Intervento%20all%27estero%20-%20Soavitas"><strong>Intervento all’estero</strong><span>scriva →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contatti">
+  <div class="inner">
+    <p class="eyebrow">Contatto rapido</p>
+    <h2>Scriva su WhatsApp.<br><em>Valutiamo la richiesta.</em></h2>
+    <p class="lead">L’obiettivo è un primo riscontro entro 60 minuti quando possibile. Prima della conferma vengono valutati zona, disponibilità, documenti e appropriatezza clinica.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="https://wa.me/393516107418?text=Salve%2C%20ho%20bisogno%20del%20servizio%20Express%20Soavitas" target="_blank" rel="noopener">WhatsApp Express</a>
+      <a class="btn btn-gold" href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20informazioni%20Soavitas%20Express">Email info</a>
+      <a class="btn btn-outline" href="https://soavitasagenda.as.me/introduttiva" target="_blank" rel="noopener">Consulenza introduttiva</a>
+    </div>
+    <div class="contact-strip">
+      <a href="https://www.instagram.com/soavitas.nursing/" target="_blank" rel="noopener">Instagram</a>
+      <span>·</span>
+      <a href="mailto:info@soavitasconciergenursing.com">info@soavitasconciergenursing.com</a>
+      <span>·</span>
+      <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Home</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-logo">Soavitas</div><div>Concierge Nursing · Solo su appuntamento</div></div>
+    <div class="footer-links">
+      <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Home</a>
+      <a href="https://soavitas.github.io/Soavitas/">Concierge Nursing</a>
+      <a href="https://www.instagram.com/soavitas.nursing/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:info@soavitasconciergenursing.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const panel = document.getElementById('menuPanel');
+const backdrop = document.getElementById('backdrop');
+const progress = document.getElementById('progressBar');
+const stepLabel = document.getElementById('stepLabel');
+
+function toggleMenu(open){
+  panel.classList.toggle('open', open);
+  backdrop.classList.toggle('open', open);
+  panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+}
+function hideAllQuiz(){
+  document.querySelectorAll('.question,.result').forEach(el => el.classList.remove('active'));
+}
+function goStep(step){
+  hideAllQuiz();
+  document.querySelector(`.question[data-step="${step}"]`).classList.add('active');
+  stepLabel.textContent = `Domanda ${step} di 3`;
+  progress.style.width = `${step * 33.333}%`;
+}
+function showResult(type){
+  hideAllQuiz();
+  document.getElementById(`result-${type}`).classList.add('active');
+  stepLabel.textContent = 'Risultato';
+  progress.style.width = '100%';
+}
+function restartQuiz(){
+  goStep(1);
+}
+document.addEventListener('keydown',(e)=>{
+  if(e.key === 'Escape') toggleMenu(false);
+});
+</script>
+</body>
+</html>
