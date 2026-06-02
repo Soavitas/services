@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Soavitas Exclusive | Private Concierge Nursing</title>
+<meta name="description" content="Soavitas Exclusive: presidio infermieristico privato seguito direttamente dai fondatori, per massimo due clienti in contemporanea.">
+<meta name="theme-color" content="#15110F">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#15110F;
+  --bg2:#1D1714;
+  --card:#231C18;
+  --ivory:#F8F3EA;
+  --soft:rgba(248,243,234,.74);
+  --muted:rgba(248,243,234,.52);
+  --line:rgba(248,243,234,.10);
+  --gold:#B99A67;
+  --gold2:#D6BE8A;
+  --sage:#7E8C76;
+  --radius:26px;
+  --max:1120px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Atkinson Hyperlegible", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(185,154,103,.16), transparent 34rem),
+    radial-gradient(circle at 82% 10%, rgba(126,140,118,.10), transparent 30rem),
+    linear-gradient(180deg,#15110F 0%,#1A1411 45%,#100D0C 100%);
+  color:var(--ivory);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+::selection{
+  background:rgba(185,154,103,.4);
+}
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(21,17,15,.88);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-family:"Cormorant Garamond", serif;
+  font-size:1.1rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  font-weight:300;
+}
+
+.logo span{
+  display:block;
+  font-family:"Atkinson Hyperlegible", sans-serif;
+  font-size:.48rem;
+  letter-spacing:.38em;
+  color:var(--gold2);
+  margin-top:2px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.nav-links a{
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--soft);
+}
+
+.nav-links a:hover{
+  color:var(--ivory);
+}
+
+.nav-cta{
+  border:1px solid rgba(185,154,103,.48);
+  border-radius:999px;
+  padding:11px 16px;
+  color:var(--gold2)!important;
+}
+
+.menu-btn{
+  display:none;
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--ivory);
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.mobile-menu{
+  display:none;
+  padding:0 22px 18px;
+  border-top:1px solid var(--line);
+}
+
+.mobile-menu.open{
+  display:block;
+}
+
+.mobile-menu a{
+  display:block;
+  padding:14px 0;
+  border-bottom:1px solid rgba(248,243,234,.07);
+  color:var(--soft);
+  font-size:.76rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 22px;
+}
+
+.hero{
+  min-height:calc(100svh - 78px);
+  display:flex;
+  align-items:center;
+  padding:80px 0 72px;
+  border-bottom:1px solid var(--line);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.08fr .72fr;
+  gap:56px;
+  align-items:center;
+}
+
+.kicker{
+  color:var(--gold2);
+  font-size:.72rem;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+h1,
+h2,
+h3{
+  font-weight:400;
+}
+
+h1{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(3.4rem,8vw,7rem);
+  line-height:.94;
+  letter-spacing:.01em;
+  max-width:860px;
+}
+
+em{
+  color:var(--gold2);
+  font-style:italic;
+}
+
+.lead{
+  max-width:680px;
+  margin-top:28px;
+  font-size:clamp(1.05rem,1.8vw,1.28rem);
+  color:var(--soft);
+}
+
+.privilege-note{
+  max-width:700px;
+  margin-top:24px;
+  padding-left:18px;
+  border-left:1px solid rgba(185,154,103,.55);
+  color:rgba(248,243,234,.72);
+  font-size:.98rem;
+}
+
+.micro{
+  max-width:640px;
+  margin-top:22px;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+.care-note{
+  max-width:700px;
+  margin-top:22px;
+  color:rgba(248,243,234,.66);
+  font-size:.94rem;
+  line-height:1.78;
+}
+
+.cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:34px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  padding:0 24px;
+  border-radius:999px;
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  transition:.25s ease;
+  border:none;
+  cursor:pointer;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btn-primary{
+  background:var(--ivory);
+  color:var(--bg);
+}
+
+.btn-secondary{
+  border:1px solid var(--line);
+  color:var(--soft);
+  background:transparent;
+}
+
+.side-card{
+  background:linear-gradient(180deg,rgba(248,243,234,.07),rgba(248,243,234,.03));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:var(--gold2);
+  font-size:.68rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+.badge:before{
+  content:"";
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--sage);
+  box-shadow:0 0 0 8px rgba(126,140,118,.10);
+}
+
+.side-card h2{
+  font-family:"Cormorant Garamond", serif;
+  font-size:2.05rem;
+  line-height:1.08;
+  margin-bottom:18px;
+}
+
+.side-card p{
+  color:var(--soft);
+  font-size:.96rem;
+}
+
+.limit{
+  margin-top:24px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+}
+
+.limit strong{
+  display:block;
+  color:var(--ivory);
+  font-size:.92rem;
+  margin-bottom:8px;
+}
+
+.section{
+  padding:90px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.section-head{
+  max-width:780px;
+  margin-bottom:42px;
+}
+
+.eyebrow{
+  color:var(--gold2);
+  font-size:.72rem;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+h2{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(2.45rem,5vw,4.4rem);
+  line-height:1.02;
+}
+
+.section-text{
+  max-width:700px;
+  margin-top:20px;
+  color:var(--soft);
+  font-size:1.02rem;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:rgba(248,243,234,.04);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:26px;
+}
+
+.card-number{
+  font-family:"Cormorant Garamond", serif;
+  font-size:2.6rem;
+  color:var(--gold2);
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.card h3{
+  font-size:1.02rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:.94rem;
+}
+
+.accordion{
+  display:grid;
+  gap:12px;
+  max-width:880px;
+}
+
+details{
+  background:rgba(248,243,234,.04);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:0;
+  overflow:hidden;
+}
+
+summary{
+  cursor:pointer;
+  list-style:none;
+  padding:22px 24px;
+  display:flex;
+  justify-content:space-between;
+  gap:22px;
+  align-items:center;
+  color:var(--ivory);
+  font-size:1rem;
+}
+
+summary::-webkit-details-marker{
+  display:none;
+}
+
+summary span{
+  color:var(--gold2);
+  font-size:.82rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+summary:after{
+  content:"+";
+  color:var(--gold2);
+  font-size:1.5rem;
+  line-height:1;
+}
+
+details[open] summary:after{
+  content:"–";
+}
+
+.details-body{
+  padding:0 24px 24px;
+  color:var(--soft);
+  max-width:720px;
+}
+
+.quote{
+  background:
+    linear-gradient(135deg,rgba(185,154,103,.12),rgba(248,243,234,.035));
+  border:1px solid rgba(185,154,103,.28);
+  border-radius:var(--radius);
+  padding:44px;
+  max-width:960px;
+}
+
+.quote p{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(2rem,4vw,3.8rem);
+  line-height:1.12;
+  font-style:italic;
+}
+
+.quote small{
+  display:block;
+  margin-top:24px;
+  color:var(--gold2);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-size:.72rem;
+}
+
+.price-layout{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:22px;
+  align-items:stretch;
+}
+
+.price-box{
+  background:var(--ivory);
+  color:var(--bg);
+  border-radius:var(--radius);
+  padding:34px;
+}
+
+.price-label{
+  color:rgba(21,17,15,.58);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.price{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(4.8rem,8vw,7rem);
+  line-height:.9;
+  margin:32px 0 12px;
+}
+
+.price small{
+  font-family:"Atkinson Hyperlegible", sans-serif;
+  font-size:1rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.price-box p{
+  color:rgba(21,17,15,.68);
+  max-width:420px;
+}
+
+.form-card{
+  background:rgba(248,243,234,.045);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:34px;
+}
+
+.form-card h3{
+  font-family:"Cormorant Garamond", serif;
+  font-size:2.2rem;
+  line-height:1.05;
+  margin-bottom:16px;
+}
+
+.form-card p{
+  color:var(--soft);
+  margin-bottom:22px;
+  max-width:660px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+label{
+  color:var(--muted);
+  font-size:.72rem;
+}
+
+input,
+textarea{
+  width:100%;
+  background:rgba(0,0,0,.18);
+  border:1px solid var(--line);
+  border-radius:16px;
+  color:var(--ivory);
+  padding:15px 16px;
+  outline:none;
+}
+
+textarea{
+  min-height:118px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus{
+  border-color:rgba(185,154,103,.75);
+}
+
+.form-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+
+.notice{
+  margin-top:18px!important;
+  color:var(--muted)!important;
+  font-size:.82rem!important;
+}
+
+.footer{
+  padding:46px 0;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  border-top:1px solid var(--line);
+  padding-top:26px;
+}
+
+.footer p,
+.footer a{
+  color:var(--muted);
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.footer-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+@media(max-width:900px){
+  .nav-links{
+    display:none;
+  }
+
+  .menu-btn{
+    display:inline-flex;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:58px 0 64px;
+  }
+
+  .hero-grid,
+  .grid,
+  .price-layout{
+    grid-template-columns:1fr;
+  }
+
+  .section{
+    padding:72px 0;
+  }
+
+  .side-card,
+  .quote,
+  .price-box,
+  .form-card{
+    padding:26px;
+  }
+
+  .cta-row,
+  .form-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+}
+
+@media(max-width:460px){
+  .wrap,
+  .nav-inner{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .logo{
+    font-size:.96rem;
+    letter-spacing:.18em;
+  }
+
+  h1{
+    font-size:3.05rem;
+  }
+
+  h2{
+    font-size:2.45rem;
+  }
+
+  .hero{
+    padding-top:46px;
+  }
+
+  .section{
+    padding:62px 0;
+  }
+
+  summary{
+    padding:20px;
+    font-size:.96rem;
+  }
+
+  summary span{
+    display:none;
+  }
+
+  .details-body{
+    padding:0 20px 22px;
+  }
+
+  .price{
+    font-size:5rem;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
+
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      Soavitas
+      <span>Exclusive</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#metodo">Metodo</a>
+      <a href="#accesso">Accesso</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Altri servizi</a>
+      <a href="#private-desk" class="nav-cta">Private Desk</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false">Menu</button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#metodo">Metodo</a>
+    <a href="#accesso">Accesso</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Altri servizi</a>
+    <a href="#private-desk">Private Desk</a>
+  </div>
+</nav>
+
+<main id="home">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+
+    <div class="reveal">
+      <div class="kicker">Private Concierge Nursing</div>
+
+      <h1>
+        Una presenza clinica <em>rara</em>, discreta, diretta.
+      </h1>
+
+      <p class="lead">
+        Soavitas Exclusive è un presidio infermieristico privato per famiglie che desiderano continuità, lucidità clinica e protezione organizzativa nei momenti delicati.
+      </p>
+
+      <p class="privilege-note">
+        Sappiamo che questo tipo di presenza è un privilegio. Ci dispiace sinceramente che non possa essere per tutti: per seguirLa bene, Soavitas Exclusive accetta al massimo due clienti in contemporanea.
+      </p>
+
+      <p class="micro">
+        Non una semplice assistenza a ore. Un progetto seguito dai fondatori, costruito intorno alla persona, alla famiglia e al contesto in cui vive.
+      </p>
+
+      <p class="care-note">
+        Chi viene seguito così non resta mai “un caso”. Diventa una presenza reale nella nostra attenzione quotidiana. L’affetto non è in vendita: appartiene già al nostro modo di curare. Ciò che chiediamo venga riconosciuto è la responsabilità professionale che permette a quella presenza di essere stabile, lucida e affidabile.
+      </p>
+
+      <div class="cta-row">
+        <a href="#private-desk" class="btn btn-primary">Richiedi valutazione</a>
+        <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener" class="btn btn-secondary">Altri servizi concierge</a>
+      </div>
+    </div>
+
+    <aside class="side-card reveal">
+      <div class="badge">Massimo due clienti</div>
+
+      <h2>
+        Seguito direttamente dai fondatori.
+      </h2>
+
+      <p>
+        Ogni presa in carico viene valutata, progettata e supervisionata in prima persona dai fondatori di Soavitas.
+      </p>
+
+      <div class="limit">
+        <strong>Per questo non accettiamo molte richieste.</strong>
+        <p>
+          Per garantire presenza reale, responsabilità e continuità, Soavitas Exclusive può seguire al massimo due clienti o pazienti in contemporanea.
+        </p>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="quote reveal">
+      <p>
+        La nostra scelta è seguire pochi, ma davvero.
+      </p>
+      <small>Non scarsità artificiale. Presenza reale.</small>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="metodo">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">Il metodo</div>
+      <h2>
+        Meno rumore. Più continuità.
+      </h2>
+      <p class="section-text">
+        La famiglia non deve inseguire informazioni, coordinare persone diverse o interpretare segnali clinici da sola. Il nostro compito è creare ordine.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card reveal">
+        <div class="card-number">01</div>
+        <h3>Valutare</h3>
+        <p>
+          Comprendiamo quadro clinico, fragilità, ambiente, abitudini, priorità familiari e livello di rischio.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-number">02</div>
+        <h3>Progettare</h3>
+        <p>
+          Costruiamo un presidio proporzionato: accessi, monitoraggio, comunicazioni, soglie di allarme e raccordo medico.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-number">03</div>
+        <h3>Seguire</h3>
+        <p>
+          Supervisioniamo l’andamento, adattiamo il piano e proteggiamo la continuità clinico-assistenziale.
+        </p>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="accesso">
+  <div class="wrap price-layout">
+
+    <div class="price-box reveal">
+      <div class="price-label">Accesso privato indicativo</div>
+      <div class="price">7.5k<small>+ / mese</small></div>
+      <p>
+        I programmi Soavitas Exclusive partono da 7.500 € al mese. Il costo finale dipende da durata, complessità clinica, luogo, reperibilità e numero di professionisti coinvolti.
+      </p>
+    </div>
+
+    <div class="form-card reveal">
+      <h3>
+        Non vendiamo pacchetti standard.
+      </h3>
+
+      <p>
+        Prima valutiamo se possiamo assumere la richiesta in modo serio. Se il bisogno richiede una presenza più ampia, un viaggio, più professionisti o reperibilità estesa, viene costruito un progetto dedicato.
+      </p>
+
+      <div class="accordion">
+
+        <details>
+          <summary>
+            Cosa include l’accesso iniziale?
+            <span>Base</span>
+          </summary>
+          <div class="details-body">
+            Valutazione privata, costruzione del piano, coordinamento iniziale, indicazioni operative e definizione del presidio più adatto.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Quando può superare i 7.500 €?
+            <span>Su misura</span>
+          </summary>
+          <div class="details-body">
+            Quando sono necessari più accessi settimanali, reperibilità elevata, trasferte, presenza in hotel o villa, più professionisti, assistenza in viaggio o monitoraggio continuativo.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Perché massimo due clienti?
+            <span>Scarsità reale</span>
+          </summary>
+          <div class="details-body">
+            Perché il presidio viene seguito dai fondatori. Non vogliamo diventare una rete impersonale. Preferiamo poche prese in carico, ma con presenza, controllo e responsabilità reali.
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">Domande essenziali</div>
+      <h2>
+        Prima di richiedere l’accesso.
+      </h2>
+    </div>
+
+    <div class="accordion reveal">
+
+      <details open>
+        <summary>
+          È assistenza domiciliare classica?
+          <span>No</span>
+        </summary>
+        <div class="details-body">
+          No. È un servizio privato di concierge nursing: clinico, organizzativo e relazionale. Serve quando la famiglia desidera continuità, discrezione e coordinamento.
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Lavorate anche in hotel, ville o viaggi?
+          <span>Sì</span>
+        </summary>
+        <div class="details-body">
+          Sì, previa valutazione. Possiamo costruire presidi in domicilio, contesti privati, soggiorni, rientri post-operatori e situazioni delicate.
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Posso chiedere solo una prestazione?
+          <span>Altrove</span>
+        </summary>
+        <div class="details-body">
+          Per prestazioni singole o servizi non continuativi rimandiamo ai canali concierge generali di Soavitas.
+          <br><br>
+          <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener" style="color:#D6BE8A;">
+            Vai agli altri servizi concierge →
+          </a>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Come avviene il primo contatto?
+          <span>Privato</span>
+        </summary>
+        <div class="details-body">
+          Si invia una richiesta essenziale. Se compatibile, viene proposta una valutazione riservata per definire bisogno, priorità, luogo, tempi e livello di presenza.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="private-desk">
+  <div class="wrap">
+
+    <div class="form-card reveal">
+      <h3>
+        Richiesta al Private Desk
+      </h3>
+
+      <p>
+        Scriva solo le informazioni essenziali. I dettagli clinici completi vengono raccolti successivamente, in modo riservato.
+      </p>
+
+      <form action="mailto:privateclients@soavitasconciergenursing.com" method="post" enctype="text/plain">
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="name">Nome e cognome</label>
+            <input id="name" name="Nome" placeholder="Nome e cognome">
+          </div>
+
+          <div class="field">
+            <label for="contact">Contatto</label>
+            <input id="contact" name="Contatto" placeholder="Email o telefono">
+          </div>
+
+          <div class="field">
+            <label for="place">Luogo</label>
+            <input id="place" name="Luogo" placeholder="Domicilio, hotel, villa, città">
+          </div>
+
+          <div class="field">
+            <label for="period">Periodo</label>
+            <input id="period" name="Periodo" placeholder="Da quando? Per quanto?">
+          </div>
+
+          <div class="field full">
+            <label for="message">Situazione essenziale</label>
+            <textarea id="message" name="Situazione" placeholder="Esempio: genitore fragile, rientro post-operatorio, viaggio, bisogno di monitoraggio, coordinamento familiare o assistenza discreta."></textarea>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Invia richiesta</button>
+          <a href="mailto:privateclients@soavitasconciergenursing.com" class="btn btn-secondary">Email diretta</a>
+        </div>
+
+        <p class="notice">
+          L’invio della richiesta non comporta presa in carico automatica. Ogni accesso viene valutato in base a disponibilità, compatibilità clinica e possibilità reale di garantire continuità.
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© Soavitas Exclusive</p>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Altri servizi</a>
+      <a href="mailto:privateclients@soavitasconciergenursing.com">Private Desk</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if(menuBtn && mobileMenu){
+  menuBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuBtn.textContent = isOpen ? "Chiudi" : "Menu";
+  });
+
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "Menu";
+    });
+  });
+}
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if("IntersectionObserver" in window){
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  revealElements.forEach(el => observer.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add("show"));
+}
+</script>
+
+</body>
+</html>
