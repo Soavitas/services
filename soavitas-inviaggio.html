@@ -8,9 +8,9 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Outfit',sans-serif;background:#F4F1EC;color:#1C1C1A;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body{font-family:'Outfit',sans-serif;background:#FAFAF7;color:#1C1C1A;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
-nav{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(28,28,26,0.06);}
+nav{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(28,28,26,0.05);background:rgba(250,250,247,0.95);}
 .n-logo{font-family:'Cormorant Garamond',serif;font-size:0.88rem;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#1C1C1A;text-decoration:none;}
 .n-right{display:flex;align-items:center;gap:2rem;}
 .n-back{font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(28,28,26,0.38);text-decoration:none;}
@@ -21,17 +21,17 @@ nav{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:cen
 .i-tag{font-size:0.52rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(201,170,106,0.5);display:block;margin-bottom:3rem;font-weight:400;}
 .i-h{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,13vw,7rem);font-weight:300;line-height:0.88;letter-spacing:-0.04em;color:#F4F1EC;margin-bottom:3rem;}
 .i-h em{font-style:italic;color:rgba(201,170,106,0.65);}
-.i-divider{width:2.5rem;height:1px;background:rgba(201,170,106,0.2);margin-bottom:2rem;}
+.i-divider{width:3rem;height:1px;background:rgba(201,170,106,0.35);margin-bottom:2.5rem;}
 .i-lead{font-size:1rem;font-weight:300;color:rgba(244,241,236,0.45);line-height:2.2;max-width:360px;}
 
 /* QUIZ */
-.quiz{padding:8rem 3rem;border-bottom:1px solid rgba(28,28,26,0.06);}
+.quiz{padding:8rem 3rem;border-bottom:1px solid rgba(28,28,26,0.05);background:#FFFFFF;}
 .q-tag{font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;color:#8B7355;display:block;margin-bottom:2rem;font-weight:500;}
 .q-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,8vw,3.8rem);font-weight:300;line-height:1.0;letter-spacing:-0.03em;color:#1C1C1A;margin-bottom:0.8rem;}
 .q-h em{font-style:italic;}
 .q-sub{font-size:0.92rem;font-weight:300;color:rgba(28,28,26,0.45);line-height:1.9;margin-bottom:3rem;max-width:400px;}
 .prog{height:1px;background:rgba(28,28,26,0.08);margin-bottom:3.5rem;}
-.prog-f{height:1px;background:#8B7355;transition:width 400ms cubic-bezier(0.25,0,0,1);width:0%;}
+.prog-f{height:1.5px;background:rgba(139,115,85,0.6);transition:width 400ms cubic-bezier(0.25,0,0,1);width:0%;}
 
 .step{display:none;animation:fi 300ms ease-out;}
 .on{display:block;}
@@ -39,7 +39,7 @@ nav{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:cen
 .sn{font-size:0.48rem;letter-spacing:0.5em;text-transform:uppercase;color:rgba(139,115,85,0.45);margin-bottom:1.5rem;display:block;}
 .qt{font-size:1.05rem;font-weight:400;color:#1C1C1A;line-height:1.6;margin-bottom:2.5rem;}
 .opts{display:flex;flex-direction:column;}
-.opt{padding:1.55rem 0;border-top:1px solid rgba(28,28,26,0.06);display:flex;justify-content:space-between;align-items:center;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;cursor:pointer;transition:padding-left 250ms cubic-bezier(0.25,0,0,1);}
+.opt{padding:1.55rem 0;border-top:1px solid rgba(28,28,26,0.05);display:flex;justify-content:space-between;align-items:center;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;cursor:pointer;transition:padding-left 250ms cubic-bezier(0.25,0,0,1);}
 .opt:last-child{border-bottom:1px solid rgba(28,28,26,0.06);}
 .opt:hover{padding-left:0.6rem;}
 .ot{font-size:0.98rem;font-weight:300;color:#1C1C1A;line-height:1.5;}
@@ -49,8 +49,8 @@ nav{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:cen
 /* RISULTATI */
 .res{display:none;animation:fi 450ms ease-out;}
 .res.on{display:block;}
-.r-card{padding:2.5rem;margin-bottom:2rem;border-left:3px solid #8B7355;background:#EDE8E0;}
-.r-tag{font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:#8B7355;font-weight:500;display:block;margin-bottom:0.6rem;}
+.r-card{padding:2.5rem;margin-bottom:2rem;border-left:1px solid rgba(139,115,85,0.4);border-top:1px solid rgba(139,115,85,0.15);border-right:1px solid rgba(139,115,85,0.08);border-bottom:1px solid rgba(139,115,85,0.08);background:rgba(255,255,255,0.7);}
+.r-tag{font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(139,115,85,0.85);font-weight:500;display:block;margin-bottom:0.6rem;}
 .r-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,5vw,2.5rem);font-weight:300;color:#1C1C1A;margin-bottom:0.8rem;line-height:1.1;}
 .r-h em{font-style:italic;}
 .r-b{font-size:0.92rem;font-weight:300;color:rgba(28,28,26,0.62);line-height:2;}
@@ -61,24 +61,24 @@ nav{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:cen
 .btn-r{background:none;border:none;font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(28,28,26,0.24);cursor:pointer;font-family:'Outfit',sans-serif;margin-top:0.8rem;display:block;}
 
 /* EVIDENZE */
-.evidenze{background:#162238;padding:7rem 3rem;border-bottom:1px solid rgba(22,34,56,0.3);}
+.evidenze{background:#0F1A2E;padding:7rem 3rem;border-bottom:none;}
 .e-tag{font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(201,170,106,0.45);display:block;margin-bottom:2.5rem;}
 .e-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,7vw,3.5rem);font-weight:300;line-height:1.0;letter-spacing:-0.03em;color:#F4F1EC;margin-bottom:3rem;}
 .e-h em{font-style:italic;color:rgba(201,170,106,0.65);}
 
 /* Accordion evidenze */
-.acc{border-top:1px solid rgba(244,241,236,0.07);}
-.acc-end{border-bottom:1px solid rgba(244,241,236,0.07);}
+.acc{border-top:1px solid rgba(244,241,236,0.06);}
+.acc-end{border-bottom:1px solid rgba(244,241,236,0.06);}
 .acc-btn{width:100%;padding:1.7rem 0;background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
 .acc-title{font-size:0.98rem;font-weight:300;color:rgba(244,241,236,0.72);text-align:left;line-height:1.5;}
 .acc-ic{font-size:0.85rem;color:rgba(201,170,106,0.4);flex-shrink:0;margin-top:0.1rem;}
 .acc-body{display:none;padding:0 0 1.8rem;}
-.acc-stat{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,8vw,3.5rem);font-weight:300;color:rgba(201,170,106,0.75);line-height:1;margin-bottom:0.8rem;letter-spacing:-0.02em;}
-.acc-text{font-size:0.9rem;font-weight:300;color:rgba(244,241,236,0.45);line-height:2;}
+.acc-stat{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,9vw,4rem);font-weight:300;color:rgba(201,170,106,0.85);line-height:1;margin-bottom:0.8rem;letter-spacing:-0.02em;}
+.acc-text{font-size:0.92rem;font-weight:300;color:rgba(244,241,236,0.52);line-height:2.1;}
 .acc-fonte{font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(244,241,236,0.2);margin-top:1rem;display:block;}
 
 /* INTERVENTI */
-.interventi{padding:7rem 3rem;border-bottom:1px solid rgba(28,28,26,0.06);}
+.interventi{padding:7rem 3rem;border-bottom:1px solid rgba(28,28,26,0.05);background:#FFFFFF;}
 .i-tag2{font-size:0.55rem;letter-spacing:0.38em;text-transform:uppercase;color:rgba(28,28,26,0.38);display:block;margin-bottom:2.5rem;}
 .i-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,7vw,3.2rem);font-weight:300;line-height:1.0;letter-spacing:-0.03em;color:#1C1C1A;margin-bottom:3rem;}
 .i-h2 em{font-style:italic;}
@@ -86,17 +86,17 @@ nav{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:cen
 .sw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -3rem;padding:0 3rem;scrollbar-width:none;}
 .sw::-webkit-scrollbar{display:none;}
 .sr{display:flex;gap:1px;width:max-content;}
-.icard{width:60vw;max-width:200px;flex-shrink:0;padding:2rem 1.5rem;border-top:2px solid #162238;}
-.i-pct{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:#162238;line-height:1;margin-bottom:0.4rem;}
+.icard{width:60vw;max-width:200px;flex-shrink:0;padding:2rem 1.5rem;border-top:1px solid rgba(139,115,85,0.2);background:transparent;}
+.i-pct{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:#8B7355;line-height:1;margin-bottom:0.4rem;}
 .i-name{font-size:0.92rem;font-weight:400;color:#1C1C1A;margin-bottom:0.3rem;}
 .i-desc{font-size:0.78rem;font-weight:300;color:rgba(28,28,26,0.5);line-height:1.8;}
 .hint{font-size:0.48rem;letter-spacing:0.2em;color:rgba(28,28,26,0.18);text-transform:uppercase;margin-top:1rem;}
-.fonte-bar{font-size:0.48rem;letter-spacing:0.18em;color:rgba(28,28,26,0.25);margin-top:2rem;line-height:2;}
+.fonte-bar{font-size:0.48rem;letter-spacing:0.18em;color:rgba(28,28,26,0.2);margin-top:2rem;line-height:2;}
 
 /* CTA intermedia */
-.cta-mid{padding:3rem;background:#EDE8E0;border-bottom:1px solid rgba(28,28,26,0.06);display:flex;justify-content:space-between;align-items:center;gap:2rem;}
+.cta-mid{padding:3rem;background:rgba(255,255,255,0.6);border-top:1px solid rgba(139,115,85,0.1);border-bottom:1px solid rgba(139,115,85,0.1);display:flex;justify-content:space-between;align-items:center;gap:2rem;backdrop-filter:blur(8px);}
 .cta-mid-t{font-size:0.95rem;font-weight:300;color:rgba(28,28,26,0.62);line-height:1.8;}
-.cta-mid-a{font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:#162238;text-decoration:none;border-bottom:1px solid rgba(22,34,56,0.2);padding-bottom:0.2rem;white-space:nowrap;}
+.cta-mid-a{font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:#8B7355;text-decoration:none;border-bottom:1px solid rgba(139,115,85,0.3);padding-bottom:0.2rem;white-space:nowrap;}
 
 /* CTA finale */
 .cta{padding:9rem 3rem;background:#162238;}
@@ -107,7 +107,7 @@ nav{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:cen
 .cta-row{display:flex;gap:0.5rem;margin-top:1.2rem;}
 .cta-row a{flex:1;padding:1rem;border:1px solid rgba(244,241,236,0.08);color:rgba(244,241,236,0.3);font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;text-align:center;display:block;}
 
-footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex;justify-content:space-between;align-items:center;}
+footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.05);display:flex;justify-content:space-between;align-items:center;background:#FFFFFF;}
 .fl{font-family:'Cormorant Garamond',serif;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,28,26,0.2);}
 .fr{font-size:0.48rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,28,26,0.18);text-align:right;line-height:2;}
 </style>
@@ -127,14 +127,14 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
   <span class="i-tag">Soavitas all'Estero</span>
   <h1 class="i-h">La cura<br>non ha<br><em>frontiere.</em></h1>
   <div class="i-divider"></div>
-  <p class="i-lead">Parigi. Londra. Ginevra. Dubai. Ovunque Lei vada — stessa figura, stesso piano clinico.</p>
+  <p class="i-lead">In Italia e oltre. La cura non dipende da dove si trova.</p>
 </section>
 
 <!-- QUIZ -->
 <section class="quiz" id="quiz">
   <span class="q-tag">Di cosa ha bisogno</span>
-  <h2 class="q-h">Capire prima<br><em>di partire.</em></h2>
-  <p class="q-sub">Quattro domande per capire il livello di assistenza necessario — e se Soavitas fa al caso suo.</p>
+  <h2 class="q-h">Dove va.<br><em>Come ci va.</em></h2>
+  <p class="q-sub">Non tutte le situazioni sono uguali. Quattro domande per capire di cosa ha bisogno — prima di partire.</p>
 
   <div class="prog"><div class="prog-f" id="epf"></div></div>
 
@@ -163,11 +163,11 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
 
   <div class="step" id="eq3">
     <span class="sn">03 / 04</span>
-    <p class="qt">La cartella clinica è disponibile in lingua straniera?</p>
+    <p class="qt">La documentazione clinica è pronta per il viaggio?</p>
     <div class="opts">
-      <button class="opt" onclick="ego(3,'si')"><span class="ot">Sì — ho tutta la documentazione tradotta</span><span class="oa">→</span></button>
-      <button class="opt" onclick="ego(3,'parziale')"><span class="ot">In parte — ho alcune informazioni ma non complete</span><span class="oa">→</span></button>
-      <button class="opt" onclick="ego(3,'no')"><span class="ot">No — ho solo documenti in italiano</span><span class="oa">→</span></button>
+      <button class="opt" onclick="ego(3,'si')"><span class="ot">Sì — ho tutto in ordine</span><span class="oa">→</span></button>
+      <button class="opt" onclick="ego(3,'parziale')"><span class="ot">In parte — ho qualcosa ma non tutto</span><span class="oa">→</span></button>
+      <button class="opt" onclick="ego(3,'no')"><span class="ot">No — non ho ancora preparato nulla</span><span class="oa">→</span></button>
       <button class="opt" onclick="ego(3,'nonsa')"><span class="ot">Non ci ho ancora pensato</span><span class="oa">→</span></button>
     </div>
   </div>
@@ -188,7 +188,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
     <div class="r-card" style="border-left-color:#162238;">
       <span class="r-tag" style="color:#162238;">Assistenza ad alta complessità</span>
       <h3 class="r-h">Serve un piano<br><em>clinico dedicato.</em></h3>
-      <p class="r-b">La situazione richiede pianificazione prima della partenza — logistica dei farmaci, documentazione clinica in lingua, identificazione delle strutture locali. Non si improvvisa all'estero con questa complessità.</p>
+      <p class="r-b">La situazione richiede pianificazione prima della partenza — logistica dei farmaci, documentazione clinica in lingua, identificazione delle strutture locali. All'estero non ci si improvvisa.</p>
       <span class="r-att-tag">Cosa organizziamo</span>
       <p class="r-att">Piano clinico pre-partenza · Logistica farmaci e dispositivi · Documentazione tradotta · Identificazione strutture locali · Presenza dedicata per tutta la durata</p>
     </div>
@@ -201,8 +201,8 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
   <div class="res" id="er-media">
     <div class="r-card">
       <span class="r-tag">Assistenza standard all'estero</span>
-      <h3 class="r-h">Pronto per partire.<br><em>Con il giusto supporto.</em></h3>
-      <p class="r-b">La situazione è gestibile con la preparazione adeguata. Una figura di supporto garantisce monitoraggio, gestione farmacologica e accesso alle strutture locali se necessario.</p>
+      <h3 class="r-h">Si parte.<br><em>Sapendo cosa fare.</em></h3>
+      <p class="r-b">La situazione è gestibile con la preparazione adeguata. Monitoraggio, farmaci, strutture. Senza doverci pensare.</p>
       <span class="r-att-tag">Cosa offriamo</span>
       <p class="r-att">Monitoraggio parametri · Gestione farmaci · Supporto in caso di necessità · Comunicazione con medici locali · Documentazione clinica accessibile</p>
     </div>
@@ -215,7 +215,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
   <div class="res" id="er-bassa">
     <div class="r-card">
       <span class="r-tag">Supporto preventivo</span>
-      <h3 class="r-h">Nessuna urgenza.<br><em>Ma la prevenzione paga.</em></h3>
+      <h3 class="r-h">La situazione è stabile.<br><em>Teniamola tale.</em></h3>
       <p class="r-b">La situazione clinica è stabile. Il supporto Soavitas in questo caso è preventivo — per gestire qualsiasi imprevisto senza doversi arrangiare in un Paese straniero da soli.</p>
       <span class="r-att-tag">Cosa offriamo</span>
       <p class="r-att">Valutazione pre-partenza · Supporto on-call · Gestione imprevisti · Assistenza per accesso a strutture locali in caso di necessità</p>
@@ -250,7 +250,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
 <!-- EVIDENZE SCIENTIFICHE -->
 <section class="evidenze">
   <span class="e-tag">Evidenze scientifiche</span>
-  <h2 class="e-h">I dati che<br><em>nessuno legge.</em></h2>
+  <h2 class="e-h">Quello che dice<br><em>la ricerca.</em></h2>
 
   <div>
     <div class="acc">
@@ -260,7 +260,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
       </button>
       <div class="acc-body" id="e1">
         <div class="acc-stat">13%</div>
-        <p class="acc-text">Dei pazienti che ricevono cure all'estero necessitano di infusioni o iniezioni endovenose — la prestazione più complessa da gestire lontano da casa. Le procedure diagnostiche sono le più frequenti (35%), seguite da antimicrobici (33%) e osservazione medica (17%).</p>
+        <p class="acc-text">Dei pazienti che ricevono cure in viaggio necessitano di infusioni o iniezioni endovenose — la prestazione più complessa da gestire lontano da casa. Le procedure diagnostiche sono le più frequenti (35%), seguite da antimicrobici (33%) e osservazione medica (17%).</p>
         <span class="acc-fonte">Fonte: GeoSentinel Surveillance Network, CDC · Healthcare seeking during travel</span>
       </div>
     </div>
@@ -346,13 +346,13 @@ footer{padding:2.5rem 3rem;border-top:1px solid rgba(28,28,26,0.06);display:flex
 <!-- CTA FINALE -->
 <section class="cta">
   <h2 class="cta-h">Dove va<br><em>Lei?</em></h2>
-  <p class="cta-sub">Ogni destinazione si valuta. La risposta è sempre onesta.</p>
+  <p class="cta-sub">Ogni destinazione si valuta insieme.</p>
   <a href="https://soavitasagenda.as.me/introduttiva" target="_blank" class="cta-btn">Prenoti una consulenza</a>
   <a href="https://wa.me/393516107418?text=Salve%2C%20vorrei%20informazioni%20sul%20servizio%20Estero%20Soavitas" target="_blank" class="cta-wa">o scriva su WhatsApp</a>
   <div class="cta-row">
     <a href="https://linktr.ee/soavitasconcierge" target="_blank">Home</a>
     <a href="https://soavitas.github.io/services/soavitas-viaggio.html" target="_blank">In viaggio →</a>
-    <a href="https://soavitas.github.io/Soavitas/soavitas-ebn.html" target="_blank">Evidenze →</a>
+    <a href="https://soavitas.github.io/Soavitas/" target="_blank">Concierge →</a>
   </div>
 </section>
 
