@@ -16,8 +16,6 @@
 <style>
 :root{
   --bg:#15110F;
-  --bg2:#1D1714;
-  --card:#231C18;
   --ivory:#F8F3EA;
   --soft:rgba(248,243,234,.74);
   --muted:rgba(248,243,234,.52);
@@ -29,15 +27,9 @@
   --max:1120px;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0;}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
   font-family:"Atkinson Hyperlegible", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -51,20 +43,10 @@ body{
   overflow-x:hidden;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
+a{color:inherit;text-decoration:none;}
+button,input,textarea{font:inherit;}
 
-button,
-input,
-textarea{
-  font:inherit;
-}
-
-::selection{
-  background:rgba(185,154,103,.4);
-}
+::selection{background:rgba(185,154,103,.4);}
 
 .nav{
   position:sticky;
@@ -116,9 +98,7 @@ textarea{
   color:var(--soft);
 }
 
-.nav-links a:hover{
-  color:var(--ivory);
-}
+.nav-links a:hover{color:var(--ivory);}
 
 .nav-cta{
   border:1px solid rgba(185,154,103,.48);
@@ -145,9 +125,7 @@ textarea{
   border-top:1px solid var(--line);
 }
 
-.mobile-menu.open{
-  display:block;
-}
+.mobile-menu.open{display:block;}
 
 .mobile-menu a{
   display:block;
@@ -188,11 +166,7 @@ textarea{
   margin-bottom:22px;
 }
 
-h1,
-h2,
-h3{
-  font-weight:400;
-}
+h1,h2,h3{font-weight:400;}
 
 h1{
   font-family:"Cormorant Garamond", serif;
@@ -202,10 +176,7 @@ h1{
   max-width:860px;
 }
 
-em{
-  color:var(--gold2);
-  font-style:italic;
-}
+em{color:var(--gold2);font-style:italic;}
 
 .lead{
   max-width:680px;
@@ -247,15 +218,13 @@ em{
 }
 
 .gold-note{
-  background:
-    linear-gradient(135deg,rgba(185,154,103,.16),rgba(248,243,234,.03));
+  background:linear-gradient(135deg,rgba(185,154,103,.16),rgba(248,243,234,.03));
   border-color:rgba(185,154,103,.22);
   border-left-color:rgba(214,190,138,.85);
 }
 
 .privilege-highlight{
-  background:
-    linear-gradient(135deg,rgba(126,140,118,.11),rgba(248,243,234,.025));
+  background:linear-gradient(135deg,rgba(126,140,118,.11),rgba(248,243,234,.025));
   border-left-color:rgba(126,140,118,.85);
 }
 
@@ -297,20 +266,10 @@ em{
   text-align:center;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
-}
+.btn:hover{transform:translateY(-2px);}
 
-.btn-primary{
-  background:var(--ivory);
-  color:var(--bg);
-}
-
-.btn-secondary{
-  border:1px solid var(--line);
-  color:var(--soft);
-  background:transparent;
-}
+.btn-primary{background:var(--ivory);color:var(--bg);}
+.btn-secondary{border:1px solid var(--line);color:var(--soft);background:transparent;}
 
 .side-card{
   background:linear-gradient(180deg,rgba(248,243,234,.07),rgba(248,243,234,.03));
@@ -346,10 +305,7 @@ em{
   margin-bottom:18px;
 }
 
-.side-card p{
-  color:var(--soft);
-  font-size:.96rem;
-}
+.side-card p{color:var(--soft);font-size:.96rem;}
 
 .limit{
   margin-top:24px;
@@ -423,10 +379,7 @@ h2{
   margin-bottom:12px;
 }
 
-.card p{
-  color:var(--muted);
-  font-size:.94rem;
-}
+.card p{color:var(--muted);font-size:.94rem;}
 
 .accordion{
   display:grid;
@@ -454,9 +407,7 @@ summary{
   font-size:1rem;
 }
 
-summary::-webkit-details-marker{
-  display:none;
-}
+summary::-webkit-details-marker{display:none;}
 
 summary span{
   color:var(--gold2);
@@ -473,9 +424,7 @@ summary:after{
   line-height:1;
 }
 
-details[open] summary:after{
-  content:"–";
-}
+details[open] summary:after{content:"–";}
 
 .details-body{
   padding:0 24px 24px;
@@ -489,8 +438,7 @@ details[open] summary:after{
 }
 
 .quote{
-  background:
-    linear-gradient(135deg,rgba(185,154,103,.12),rgba(248,243,234,.035));
+  background:linear-gradient(135deg,rgba(185,154,103,.12),rgba(248,243,234,.035));
   border:1px solid rgba(185,154,103,.28);
   border-radius:var(--radius);
   padding:44px;
@@ -548,10 +496,7 @@ details[open] summary:after{
   text-transform:uppercase;
 }
 
-.price-box p{
-  color:rgba(21,17,15,.68);
-  max-width:420px;
-}
+.price-box p{color:rgba(21,17,15,.68);max-width:420px;}
 
 .form-card{
   background:rgba(248,243,234,.045);
@@ -618,117 +563,37 @@ details[open] summary:after{
   transition:opacity .7s ease, transform .7s ease;
 }
 
-.reveal.show{
-  opacity:1;
-  transform:none;
-}
+.reveal.show{opacity:1;transform:none;}
 
 @media(max-width:900px){
-  .nav-links{
-    display:none;
-  }
-
-  .menu-btn{
-    display:inline-flex;
-  }
-
-  .hero{
-    min-height:auto;
-    padding:58px 0 64px;
-  }
-
-  .hero-grid,
-  .grid,
-  .price-layout{
-    grid-template-columns:1fr;
-  }
-
-  .section{
-    padding:72px 0;
-  }
-
-  .side-card,
-  .quote,
-  .price-box,
-  .form-card{
-    padding:26px;
-  }
-
-  .cta-row,
-  .contact-options{
-    display:grid;
-    grid-template-columns:1fr;
-  }
-
-  .btn{
-    width:100%;
-  }
-
-  .footer-inner{
-    flex-direction:column;
-  }
+  .nav-links{display:none;}
+  .menu-btn{display:inline-flex;}
+  .hero{min-height:auto;padding:58px 0 64px;}
+  .hero-grid,.grid,.price-layout{grid-template-columns:1fr;}
+  .section{padding:72px 0;}
+  .side-card,.quote,.price-box,.form-card{padding:26px;}
+  .cta-row,.contact-options{display:grid;grid-template-columns:1fr;}
+  .btn{width:100%;}
+  .footer-inner{flex-direction:column;}
 }
 
 @media(max-width:460px){
-  .wrap,
-  .nav-inner{
-    padding-left:18px;
-    padding-right:18px;
-  }
-
-  .logo{
-    font-size:.96rem;
-    letter-spacing:.18em;
-  }
-
-  h1{
-    font-size:3.05rem;
-  }
-
-  h2{
-    font-size:2.45rem;
-  }
-
-  .hero{
-    padding-top:46px;
-  }
-
-  .section{
-    padding:62px 0;
-  }
-
-  summary{
-    padding:20px;
-    font-size:.96rem;
-  }
-
-  summary span{
-    display:none;
-  }
-
-  .details-body{
-    padding:0 20px 22px;
-  }
-
-  .price{
-    font-size:5rem;
-  }
-
-  .highlight-note strong{
-    font-size:1.28rem;
-  }
+  .wrap,.nav-inner{padding-left:18px;padding-right:18px;}
+  .logo{font-size:.96rem;letter-spacing:.18em;}
+  h1{font-size:3.05rem;}
+  h2{font-size:2.45rem;}
+  .hero{padding-top:46px;}
+  .section{padding:62px 0;}
+  summary{padding:20px;font-size:.96rem;}
+  summary span{display:none;}
+  .details-body{padding:0 20px 22px;}
+  .price{font-size:5rem;}
+  .highlight-note strong{font-size:1.28rem;}
 }
 
 @media(prefers-reduced-motion:reduce){
-  *{
-    scroll-behavior:auto!important;
-    transition:none!important;
-  }
-
-  .reveal{
-    opacity:1;
-    transform:none;
-  }
+  *{scroll-behavior:auto!important;transition:none!important;}
+  .reveal{opacity:1;transform:none;}
 }
 </style>
 </head>
@@ -737,13 +602,13 @@ details[open] summary:after{
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#home" class="logo">
+    <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener" class="logo">
       Soavitas
       <span>Exclusive</span>
     </a>
 
     <div class="nav-links">
-      <a href="#home">Home</a>
+      <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Home</a>
       <a href="#metodo">Metodo</a>
       <a href="#accesso">Accesso</a>
       <a href="#faq">FAQ</a>
@@ -755,7 +620,7 @@ details[open] summary:after{
   </div>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#home">Home</a>
+    <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Home</a>
     <a href="#metodo">Metodo</a>
     <a href="#accesso">Accesso</a>
     <a href="#faq">FAQ</a>
@@ -845,12 +710,9 @@ details[open] summary:after{
 
 <section class="section" id="metodo">
   <div class="wrap">
-
     <div class="section-head reveal">
       <div class="eyebrow">Il metodo</div>
-      <h2>
-        Meno rumore. Più continuità.
-      </h2>
+      <h2>Meno rumore. Più continuità.</h2>
       <p class="section-text">
         La famiglia non deve inseguire informazioni, coordinare persone diverse o interpretare segnali clinici da sola. Il nostro compito è creare ordine.
       </p>
@@ -860,28 +722,21 @@ details[open] summary:after{
       <article class="card reveal">
         <div class="card-number">01</div>
         <h3>Valutare</h3>
-        <p>
-          Comprendiamo quadro clinico, fragilità, ambiente, abitudini, priorità familiari e livello di rischio.
-        </p>
+        <p>Comprendiamo quadro clinico, fragilità, ambiente, abitudini, priorità familiari e livello di rischio.</p>
       </article>
 
       <article class="card reveal">
         <div class="card-number">02</div>
         <h3>Progettare</h3>
-        <p>
-          Costruiamo un presidio proporzionato: accessi, monitoraggio, comunicazioni, soglie di allarme e raccordo medico.
-        </p>
+        <p>Costruiamo un presidio proporzionato: accessi, monitoraggio, comunicazioni, soglie di allarme e raccordo medico.</p>
       </article>
 
       <article class="card reveal">
         <div class="card-number">03</div>
         <h3>Seguire</h3>
-        <p>
-          Supervisioniamo l’andamento, adattiamo il piano e proteggiamo la continuità clinico-assistenziale.
-        </p>
+        <p>Supervisioniamo l’andamento, adattiamo il piano e proteggiamo la continuità clinico-assistenziale.</p>
       </article>
     </div>
-
   </div>
 </section>
 
@@ -897,46 +752,33 @@ details[open] summary:after{
     </div>
 
     <div class="form-card reveal">
-      <h3>
-        Non vendiamo pacchetti standard.
-      </h3>
+      <h3>Non vendiamo pacchetti standard.</h3>
 
       <p>
         Prima valutiamo se possiamo assumere la richiesta in modo serio. Se il bisogno richiede una presenza più ampia, un viaggio, più professionisti o reperibilità estesa, viene costruito un progetto dedicato.
       </p>
 
       <div class="accordion">
-
         <details>
-          <summary>
-            Cosa include l’accesso iniziale?
-            <span>Base</span>
-          </summary>
+          <summary>Cosa include l’accesso iniziale?<span>Base</span></summary>
           <div class="details-body">
             Valutazione privata, costruzione del piano, coordinamento iniziale, indicazioni operative e definizione del presidio più adatto.
           </div>
         </details>
 
         <details>
-          <summary>
-            Quando può superare i 4.700 €?
-            <span>Su misura</span>
-          </summary>
+          <summary>Quando può superare i 4.700 €?<span>Su misura</span></summary>
           <div class="details-body">
             Quando sono necessari più accessi settimanali, reperibilità elevata, trasferte, presenza in hotel o villa, più professionisti, assistenza in viaggio, monitoraggio continuativo o coordinamento clinico più intenso.
           </div>
         </details>
 
         <details>
-          <summary>
-            Perché massimo due clienti?
-            <span>Scarsità reale</span>
-          </summary>
+          <summary>Perché massimo due clienti?<span>Scarsità reale</span></summary>
           <div class="details-body">
             Perché il presidio viene seguito dai fondatori. Non vogliamo diventare una rete impersonale. Preferiamo poche prese in carico, ma con presenza, controllo e responsabilità reali.
           </div>
         </details>
-
       </div>
     </div>
 
@@ -948,72 +790,49 @@ details[open] summary:after{
 
     <div class="section-head reveal">
       <div class="eyebrow">Domande essenziali</div>
-      <h2>
-        Prima di richiedere l’accesso.
-      </h2>
+      <h2>Prima di richiedere l’accesso.</h2>
     </div>
 
     <div class="accordion reveal">
 
       <details open>
-        <summary>
-          È assistenza domiciliare classica?
-          <span>No</span>
-        </summary>
+        <summary>È assistenza domiciliare classica?<span>No</span></summary>
         <div class="details-body">
           No. È un servizio privato di concierge nursing: clinico, organizzativo e relazionale. Serve quando la famiglia desidera continuità, discrezione e coordinamento.
         </div>
       </details>
 
       <details>
-        <summary>
-          Lavorate anche in hotel, ville o viaggi?
-          <span>Sì</span>
-        </summary>
+        <summary>Lavorate anche in hotel, ville o viaggi?<span>Sì</span></summary>
         <div class="details-body">
           Sì, previa valutazione. Possiamo costruire presidi in domicilio, contesti privati, soggiorni, rientri post-operatori e situazioni delicate.
         </div>
       </details>
 
       <details>
-        <summary>
-          È possibile richiedere solo una prestazione?
-          <span>Sì</span>
-        </summary>
+        <summary>È possibile richiedere solo una prestazione?<span>Sì</span></summary>
         <div class="details-body">
           Sì. Per prestazioni singole, medicazioni, catetere, infusioni, monitoraggi o interventi non continuativi, può accedere alla pagina dedicata alle prestazioni Soavitas.
           <br><br>
-          <a href="https://soavitas.github.io/services/soavitas-prestazioni.html" target="_blank" rel="noopener">
-            Acceda alle prestazioni singole →
-          </a>
+          <a href="https://soavitas.github.io/services/soavitas-prestazioni.html" target="_blank" rel="noopener">Acceda alle prestazioni singole →</a>
           <br><br>
           Oppure può scrivere direttamente su WhatsApp:
           <br><br>
-          <a href="https://api.whatsapp.com/send?phone=393516107418" target="_blank" rel="noopener">
-            Scriva a Soavitas su WhatsApp →
-          </a>
+          <a href="https://api.whatsapp.com/send?phone=393516107418" target="_blank" rel="noopener">Scriva a Soavitas su WhatsApp →</a>
         </div>
       </details>
 
       <details>
-        <summary>
-          Dove sono disponibili gli altri servizi concierge?
-          <span>Home</span>
-        </summary>
+        <summary>Dove sono disponibili gli altri servizi concierge?<span>Home</span></summary>
         <div class="details-body">
           I servizi Soavitas più ampi, inclusi concierge nursing, accompagnamento, supporto privato e percorsi non Exclusive, sono raccolti nella pagina principale.
           <br><br>
-          <a href="https://soavitas.github.io/Soavitas/" target="_blank" rel="noopener">
-            Acceda agli altri servizi concierge →
-          </a>
+          <a href="https://soavitas.github.io/Soavitas/" target="_blank" rel="noopener">Acceda agli altri servizi concierge →</a>
         </div>
       </details>
 
       <details>
-        <summary>
-          Come avviene il primo contatto?
-          <span>Privato</span>
-        </summary>
+        <summary>Come avviene il primo contatto?<span>Privato</span></summary>
         <div class="details-body">
           Può scrivere al Private Desk o su WhatsApp indicando solo le informazioni essenziali. Se la richiesta è compatibile, viene proposta una valutazione riservata per definire bisogno, priorità, luogo, tempi e livello di presenza.
         </div>
@@ -1028,9 +847,7 @@ details[open] summary:after{
   <div class="wrap">
 
     <div class="form-card reveal">
-      <h3>
-        Richiesta al Private Desk
-      </h3>
+      <h3>Richiesta al Private Desk</h3>
 
       <p>
         Scriva solo le informazioni essenziali. I dettagli clinici completi vengono raccolti successivamente, in modo riservato.
@@ -1061,7 +878,7 @@ details[open] summary:after{
     <p>© Soavitas Exclusive</p>
 
     <div class="footer-links">
-      <a href="#home">Home</a>
+      <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener">Home</a>
       <a href="https://soavitas.github.io/Soavitas/" target="_blank" rel="noopener">Altri servizi</a>
       <a href="https://soavitas.github.io/services/soavitas-prestazioni.html" target="_blank" rel="noopener">Prestazioni</a>
       <a href="https://api.whatsapp.com/send?phone=393516107418" target="_blank" rel="noopener">Scriva su WhatsApp</a>
